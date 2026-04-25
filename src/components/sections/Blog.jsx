@@ -83,7 +83,7 @@ export default function Blog() {
           title="Latest Insights"
           subtitle="Thoughts and perspectives from our team on design, development, and technology."
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20 md:mb-32">
           {posts.map((post, i) => (
             <BlogCard key={post.title} post={post} index={i} />
           ))}
