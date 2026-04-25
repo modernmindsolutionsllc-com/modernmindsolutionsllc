@@ -7,7 +7,9 @@ export default function SectionHeader({ overline, title, subtitle, centered = tr
   return (
     <motion.div
       ref={ref}
-      className={`mb-20 md:mb-28 ${centered ? 'text-center' : 'text-left'}`}
+      className={`mb-24 md:mb-32 w-full ${
+        centered ? 'flex flex-col items-center text-center' : 'text-left'
+      }`}
       initial={{ opacity: 0, y: 30 }}
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -21,14 +23,14 @@ export default function SectionHeader({ overline, title, subtitle, centered = tr
       )}
 
       <h2 className={`font-display text-3xl md:text-4xl lg:text-[3.25rem] font-bold mb-7 leading-[1.15] ${
-        light ? 'text-white' : 'text-[var(--text-primary)]'
-      }`}>
+        centered ? 'text-center' : 'text-left'
+      } ${light ? 'text-white' : 'text-[var(--text-primary)]'}`}>
         {title}
       </h2>
 
       {subtitle && (
-        <p className={`font-body text-base md:text-lg max-w-xl leading-[1.8] ${
-          centered ? 'mx-auto text-center' : ''
+        <p className={`font-body text-base md:text-lg leading-[1.8] ${
+          centered ? 'w-full max-w-2xl text-center' : 'max-w-2xl'
         } ${light ? 'text-white/70' : 'text-[var(--text-secondary)]'}`}>
           {subtitle}
         </p>

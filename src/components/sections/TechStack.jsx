@@ -39,7 +39,7 @@ function TechIcon({ tech, index }) {
 export default function TechStack() {
   const [ref, isVisible] = useScrollAnimation();
   return (
-    <section id="tech-stack" className="py-36 md:py-48 bg-transparent">
+    <section id="tech-stack" className="py-44 md:py-56 bg-transparent">
       <div className="container">
         <SectionHeader
           overline="Our Toolkit"

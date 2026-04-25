@@ -71,7 +71,7 @@ function ServiceCard({ service, index }) {
 
 export default function Services() {
   return (
-    <section id="services" className="py-36 md:py-48 bg-transparent">
+    <section id="services" className="py-44 md:py-56 bg-transparent">
       <div className="container">
         <SectionHeader
           overline="What We Do"

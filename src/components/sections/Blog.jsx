@@ -76,7 +76,7 @@ function BlogCard({ post, index }) {
 
 export default function Blog() {
   return (
-    <section id="blog" className="py-36 md:py-48 bg-transparent">
+    <section id="blog" className="py-44 md:py-56 bg-transparent">
       <div className="container">
         <SectionHeader
           overline="Our Blog"

@@ -19,7 +19,7 @@ function LogoPlaceholder({ name }) {
 
 export default function ClientLogos() {
   return (
-    <section id="clients" className="py-20 md:py-28 bg-transparent border-y border-[var(--border)] overflow-hidden">
+    <section id="clients" className="py-28 md:py-36 bg-transparent border-y border-[var(--border)] overflow-hidden">
       <div className="container mb-12">
         <p className="text-center font-body text-xs tracking-[0.25em] uppercase text-[var(--text-secondary)]">
           Trusted by forward-thinking teams

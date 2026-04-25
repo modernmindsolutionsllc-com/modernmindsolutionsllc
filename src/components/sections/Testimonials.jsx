@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import SectionHeader from '../ui/SectionHeader';
 
 const testimonials = [
   {
@@ -46,32 +47,22 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="w-full py-28 md:py-40 bg-transparent overflow-hidden"
+      className="w-full py-40 md:py-52 bg-transparent overflow-hidden"
     >
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* Heading */}
-        <div className="text-center mb-14 md:mb-20">
-          <span className="inline-block font-body text-xs font-semibold tracking-[0.3em] uppercase text-[var(--accent)] mb-5">
-            Testimonials
-          </span>
-
-          <h2 className="font-display text-3xl md:text-5xl lg:text-[3.25rem] font-bold text-[var(--text-primary)] mb-6 leading-tight">
-            What Clients Say
-          </h2>
-
-          <p className="font-body text-base md:text-lg text-[var(--text-secondary)] mx-auto max-w-xl leading-[1.8]">
-            Hear from the teams we've partnered with.
-          </p>
-        </div>
+      <div className="container">
+        <SectionHeader
+          overline="Testimonials"
+          title="What Clients Say"
+          subtitle="Hear from the teams we've partnered with."
+        />
 
         {/* Card wrapper */}
         <div className="w-full flex justify-center">
-          <div className="relative w-full max-w-4xl rounded-3xl bg-[var(--card-bg)] border border-[var(--border)] shadow-lg px-6 py-10 sm:px-10 md:px-16 md:py-14">
+          <div className="relative w-full max-w-5xl rounded-3xl bg-[var(--card-bg)] border border-[var(--border)] shadow-lg px-6 py-10 sm:px-10 md:px-16 md:py-14">
 
             <Quote
               size={48}
-              className="text-[var(--accent)] opacity-20 absolute top-8 left-8"
+              className="text-[var(--accent)] opacity-20 absolute top-8 left-8 md:left-10"
             />
 
             <AnimatePresence mode="wait">
@@ -81,9 +72,9 @@ export default function Testimonials() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -16 }}
                 transition={{ duration: 0.35 }}
-                className="relative z-10"
+                className="relative z-10 flex flex-col items-center text-center"
               >
-                <p className="font-body text-lg md:text-xl italic text-[var(--text-primary)] leading-[1.8] text-center max-w-3xl mx-auto mb-10">
+                <p className="font-body text-lg md:text-xl italic text-[var(--text-primary)] leading-[1.8] text-center w-full max-w-2xl mx-auto mb-10 px-6 md:px-10">
                   “{testimonials[current].quote}”
                 </p>
 
