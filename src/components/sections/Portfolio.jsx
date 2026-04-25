@@ -12,7 +12,7 @@ const projects = [
     description: 'A comprehensive analytics dashboard with real-time data visualization and AI-powered insights for financial institutions.',
     tags: ['React', 'Node.js', 'D3.js', 'PostgreSQL'],
     color: 'from-amber-500 to-orange-600',
-    span: 'lg:col-span-2',
+    span: 'md:col-span-2',
   },
   {
     title: 'Project Beta',
@@ -20,7 +20,7 @@ const projects = [
     description: 'A high-performance, scalable e-commerce solution with headless architecture and 60fps smooth interactions.',
     tags: ['Next.js', 'Stripe', 'MongoDB', 'Tailwind'],
     color: 'from-orange-500 to-red-500',
-    span: 'lg:col-span-1',
+    span: 'md:col-span-1',
   },
   {
     title: 'Project Gamma',
@@ -28,7 +28,15 @@ const projects = [
     description: 'Machine learning platform that transforms raw data into actionable business intelligence with natural language queries.',
     tags: ['Python', 'React', 'TensorFlow', 'AWS'],
     color: 'from-yellow-500 to-amber-600',
-    span: 'lg:col-span-1',
+    span: 'md:col-span-1',
+  },
+  {
+    title: 'Project Delta',
+    subtitle: 'Healthcare Patient Portal',
+    description: 'A secure, HIPAA-compliant patient portal with real-time appointment scheduling and telemedicine integration.',
+    tags: ['React', 'Node.js', 'AWS', 'WebRTC'],
+    color: 'from-rose-500 to-orange-500',
+    span: 'md:col-span-2',
   },
 ];
 
@@ -102,7 +110,7 @@ export default function Portfolio() {
           subtitle="A selection of our recent work that showcases our expertise in design, development, and problem-solving."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
           {projects.map((project, i) => (
             <ProjectCard key={project.title} project={project} index={i} />
           ))}

@@ -1,4 +1,4 @@
-import { Linkedin, Twitter, Github, Dribbble, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { Globe, MessageCircle, GitFork, Palette, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
 
 const quickLinks = [
   { label: 'Home', href: '#home' },
@@ -16,10 +16,10 @@ const services = [
 ];
 
 const socials = [
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Twitter, href: '#', label: 'X (Twitter)' },
-  { icon: Github, href: '#', label: 'GitHub' },
-  { icon: Dribbble, href: '#', label: 'Dribbble' },
+  { icon: Globe, href: '#', label: 'LinkedIn' },
+  { icon: MessageCircle, href: '#', label: 'X (Twitter)' },
+  { icon: GitFork, href: '#', label: 'GitHub' },
+  { icon: Palette, href: '#', label: 'Dribbble' },
 ];
 
 export default function Footer() {
