@@ -17,14 +17,14 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-12"
+      className="relative min-h-screen flex items-center overflow-hidden pt-28 pb-20"
       style={{ background: 'var(--gradient-glow), var(--bg-primary)' }}
     >
-      <div className="container grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-        {/* Text Content — left 55% */}
+      <div className="container grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-center">
+        {/* Text Content */}
         <div className="lg:col-span-7 z-10 text-center lg:text-left">
           <motion.span
-            className="inline-block font-body text-xs font-medium tracking-[0.25em] uppercase text-[var(--accent)] mb-6"
+            className="inline-block font-body text-xs font-medium tracking-[0.25em] uppercase text-[var(--accent)] mb-8"
             custom={0}
             initial="hidden"
             animate="visible"
@@ -34,7 +34,7 @@ export default function HeroSection() {
           </motion.span>
 
           <motion.h1
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.08] text-[var(--text-primary)] mb-8"
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-bold leading-[1.12] text-[var(--text-primary)] mb-10"
             custom={1}
             initial="hidden"
             animate="visible"
@@ -48,14 +48,13 @@ export default function HeroSection() {
           </motion.h1>
 
           <motion.p
-            className="font-body text-base md:text-lg text-[var(--text-secondary)] max-w-lg mb-10 leading-[1.8] mx-auto lg:mx-0"
+            className="font-body text-lg text-[var(--text-secondary)] max-w-lg mb-14 leading-[1.85] mx-auto lg:mx-0"
             custom={2}
             initial="hidden"
             animate="visible"
             variants={textVariants}
           >
-            We design and develop modern, performant web solutions that help businesses
-            stand out, engage users, and grow faster in the digital landscape.
+            Modern, performant web solutions that help businesses stand out and grow faster.
           </motion.p>
 
           <motion.div
@@ -74,7 +73,7 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Three.js Visual — right 45% */}
+        {/* Three.js Visual */}
         <motion.div
           className="lg:col-span-5 h-[350px] sm:h-[420px] lg:h-[560px]"
           initial={{ opacity: 0, scale: 0.85 }}

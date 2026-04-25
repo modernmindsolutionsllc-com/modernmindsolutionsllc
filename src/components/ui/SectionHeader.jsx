@@ -7,33 +7,29 @@ export default function SectionHeader({ overline, title, subtitle, centered = tr
   return (
     <motion.div
       ref={ref}
-      className={`mb-16 md:mb-20 ${centered ? 'text-center' : ''}`}
+      className={`mb-20 md:mb-28 ${centered ? 'text-center' : 'text-left'}`}
       initial={{ opacity: 0, y: 30 }}
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
       {overline && (
-        <span
-          className={`inline-block font-body text-xs font-medium tracking-[0.25em] uppercase mb-4 ${
-            light ? 'text-amber-200' : 'text-[var(--accent)]'
-          }`}
-        >
+        <span className={`inline-block font-body text-xs font-semibold tracking-[0.3em] uppercase mb-5 ${
+          light ? 'text-amber-200' : 'text-[var(--accent)]'
+        }`}>
           {overline}
         </span>
       )}
-      <h2
-        className={`font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight ${
-          light ? 'text-white' : 'text-[var(--text-primary)]'
-        }`}
-      >
+
+      <h2 className={`font-display text-3xl md:text-4xl lg:text-[3.25rem] font-bold mb-7 leading-[1.15] ${
+        light ? 'text-white' : 'text-[var(--text-primary)]'
+      }`}>
         {title}
       </h2>
+
       {subtitle && (
-        <p
-          className={`font-body text-base md:text-lg max-w-2xl leading-relaxed ${
-            centered ? 'mx-auto' : ''
-          } ${light ? 'text-gray-300' : 'text-[var(--text-secondary)]'}`}
-        >
+        <p className={`font-body text-base md:text-lg max-w-xl leading-[1.8] ${
+          centered ? 'mx-auto text-center' : ''
+        } ${light ? 'text-white/70' : 'text-[var(--text-secondary)]'}`}>
           {subtitle}
         </p>
       )}

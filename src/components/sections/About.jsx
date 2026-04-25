@@ -5,8 +5,8 @@ import { useCountUp } from '../../hooks/useCountUp';
 const stats = [
   { value: 50, suffix: '+', label: 'Projects Delivered' },
   { value: 30, suffix: '+', label: 'Happy Clients' },
-  { value: 5, suffix: '+', label: 'Years of Experience' },
-  { value: 99, suffix: '%', label: 'Client Satisfaction' },
+  { value: 5, suffix: '+', label: 'Years Experience' },
+  { value: 99, suffix: '%', label: 'Satisfaction' },
 ];
 
 function StatCard({ stat }) {
@@ -20,7 +20,7 @@ function StatCard({ stat }) {
       <span className="font-display text-3xl md:text-4xl font-bold text-[var(--accent)]">
         {count}{stat.suffix}
       </span>
-      <span className="font-body text-sm text-[var(--text-secondary)] mt-1.5">
+      <span className="font-body text-sm text-[var(--text-secondary)] mt-2">
         {stat.label}
       </span>
     </div>
@@ -31,10 +31,10 @@ export default function About() {
   const [ref, isVisible] = useScrollAnimation();
 
   return (
-    <section id="about" className="py-24 md:py-36 bg-[var(--bg-secondary)]">
+    <section id="about" className="py-36 md:py-48 bg-transparent">
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center">
-          {/* Text — left 60% */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+          {/* Text */}
           <motion.div
             ref={ref}
             className="lg:col-span-7"
@@ -42,38 +42,30 @@ export default function About() {
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <span className="inline-block font-body text-sm font-medium tracking-[0.2em] uppercase text-[var(--accent)] mb-4">
+            <span className="inline-block font-body text-sm font-medium tracking-[0.2em] uppercase text-[var(--accent)] mb-6">
               Who We Are
             </span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-8 leading-tight">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-[3.25rem] font-bold text-[var(--text-primary)] mb-10 leading-[1.15]">
               Modern Problems Deserve{' '}
               <span className="bg-gradient-to-r from-accent-amber via-accent-orange to-accent-deep bg-clip-text text-transparent">
                 Modern Minds
               </span>
             </h2>
 
-            <div className="space-y-5 mb-12">
-              <p className="font-body text-base md:text-lg text-[var(--text-secondary)] leading-relaxed">
-                At ModernMind Solutions, we believe technology should be invisible yet impactful.
-                Our team of designers, developers, and strategists work together to craft digital
-                products that are not just functional — they're delightful to use.
-              </p>
-              <p className="font-body text-base md:text-lg text-[var(--text-secondary)] leading-relaxed">
-                Founded with a mission to bridge the gap between great design and powerful
-                engineering, we partner with startups and enterprises to turn ambitious ideas
-                into reality. From MVPs to enterprise platforms, we've got you covered.
-              </p>
-            </div>
+            <p className="font-body text-base md:text-lg text-[var(--text-secondary)] leading-[1.85] mb-16">
+              We bridge great design and powerful engineering — partnering with startups and enterprises
+              to turn ambitious ideas into reality.
+            </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat) => (
                 <StatCard key={stat.label} stat={stat} />
               ))}
             </div>
           </motion.div>
 
-          {/* Visual — right 40% */}
+          {/* Visual */}
           <motion.div
             className="lg:col-span-5"
             initial={{ opacity: 0, x: 40 }}
@@ -83,13 +75,11 @@ export default function About() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src="/images/about-team.png"
-                alt="ModernMind team collaborating in a modern workspace"
+                alt="ModernMind team collaborating"
                 className="w-full h-auto object-cover aspect-[4/3]"
                 loading="lazy"
               />
-              {/* Subtle gradient overlay at bottom */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              {/* Decorative dots */}
               <div className="absolute top-5 right-5 grid grid-cols-3 gap-2">
                 {Array.from({ length: 9 }).map((_, i) => (
                   <div key={i} className="w-2 h-2 rounded-full bg-white/40" />

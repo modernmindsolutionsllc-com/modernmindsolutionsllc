@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code, Smartphone, Brain, Palette, ArrowRight } from 'lucide-react';
+import { Code, Smartphone, Brain, Palette } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
@@ -7,80 +7,76 @@ const services = [
   {
     icon: Code,
     title: 'Web Development',
-    description: 'Custom websites and web applications built for performance, scalability, and exceptional user experience.',
-    link: '#',
+    description: 'High-performance websites and web apps built for scale and exceptional UX.',
   },
   {
     icon: Smartphone,
-    title: 'Mobile App Development',
-    description: 'Cross-platform and native mobile apps using React Native and Flutter that feel truly native.',
-    link: '#',
+    title: 'Mobile Apps',
+    description: 'Cross-platform apps with React Native and Flutter that feel truly native.',
   },
   {
     icon: Brain,
     title: 'AI & Automation',
-    description: 'Smart integrations, intelligent chatbots, and ML-powered features that automate and elevate your business.',
-    link: '#',
+    description: 'Smart integrations and ML-powered features that automate your workflow.',
   },
   {
     icon: Palette,
     title: 'UI/UX Design',
-    description: 'User-centric design systems and interfaces that delight users and drive measurable conversions.',
-    link: '#',
+    description: 'User-centric design systems that convert visitors into loyal customers.',
   },
 ];
 
 function ServiceCard({ service, index }) {
   const [ref, isVisible] = useScrollAnimation();
+  const Icon = service.icon;
 
   return (
     <motion.div
       ref={ref}
-      className="group relative p-8 md:p-10 rounded-2xl
-        bg-[var(--card-bg)]
-        border border-[var(--border)]
-        hover:border-[var(--accent)]/50 hover:shadow-2xl hover:shadow-[var(--accent)]/8
-        transition-all duration-400 cursor-default"
+      className="group flex flex-col items-center text-center
+        p-10 rounded-2xl
+        bg-[var(--card-bg)] border border-[var(--border)]
+        hover:border-[var(--accent)]/40
+        hover:shadow-2xl hover:shadow-[var(--accent)]/8
+        transition-all duration-300"
       initial={{ opacity: 0, y: 40 }}
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.1, duration: 0.5, ease: 'easeOut' }}
       whileHover={{ y: -6 }}
     >
-      {/* Icon */}
-      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-amber/15 to-accent-orange/15
-        flex items-center justify-center mb-7 group-hover:from-accent-amber/25 group-hover:to-accent-orange/25 transition-all duration-400"
+      {/* Icon bubble */}
+      <div className="w-16 h-16 rounded-2xl mb-8 flex items-center justify-center
+        bg-gradient-to-br from-[var(--accent)]/15 to-[var(--accent)]/5
+        group-hover:from-[var(--accent)]/25 group-hover:to-[var(--accent)]/10
+        transition-all duration-300"
       >
-        <service.icon size={28} className="text-[var(--accent)]" strokeWidth={1.5} />
+        <Icon size={28} className="text-[var(--accent)]" strokeWidth={1.5} />
       </div>
 
-      {/* Content */}
-      <h3 className="font-display text-xl font-bold text-[var(--text-primary)] mb-4">
+      {/* Title */}
+      <h3 className="font-display text-xl font-bold text-[var(--text-primary)] mb-4 leading-snug">
         {service.title}
       </h3>
-      <p className="font-body text-sm text-[var(--text-secondary)] mb-7 leading-[1.8]">
+
+      {/* Divider */}
+      <div className="w-10 h-0.5 rounded-full bg-[var(--accent)]/30 mb-5" />
+
+      {/* Description */}
+      <p className="font-body text-sm text-[var(--text-secondary)] leading-[1.85] max-w-[220px]">
         {service.description}
       </p>
-
-      {/* Link */}
-      <a
-        href={service.link}
-        className="inline-flex items-center gap-2 font-body text-sm font-medium text-[var(--accent)]
-          hover:gap-3 transition-all duration-300"
-      >
-        Learn More <ArrowRight size={14} />
-      </a>
     </motion.div>
   );
 }
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 md:py-36 bg-[var(--bg-primary)]">
+    <section id="services" className="py-36 md:py-48 bg-transparent">
       <div className="container">
         <SectionHeader
           overline="What We Do"
           title="Services That Drive Growth"
-          subtitle="From concept to deployment, we provide end-to-end digital solutions tailored to your unique business needs."
+          subtitle="End-to-end digital solutions tailored to your business."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">

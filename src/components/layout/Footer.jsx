@@ -24,21 +24,20 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--bg-secondary)] border-t border-[var(--border)]">
-      <div className="container py-20 md:py-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+    <footer className="bg-transparent border-t border-[var(--border)]">
+      <div className="container py-20 md:py-28">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-20">
           {/* Brand Column */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <a href="#home" className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-accent-amber to-accent-orange flex items-center justify-center shadow-lg">
-                <span className="text-white font-display font-bold text-lg">M</span>
-              </div>
-              <span className="font-display font-bold text-xl text-[var(--text-primary)]">
-                ModernMind
-              </span>
+            <a href="#home" className="flex items-center mb-6">
+              <img
+                src="/images/logo.png"
+                alt="ModernMind Solutions LLC"
+                className="h-10 w-auto object-contain"
+              />
             </a>
             <p className="font-body text-sm text-[var(--text-secondary)] mb-8 leading-[1.8] max-w-xs">
-              Building digital experiences that move people. Modern solutions for modern challenges.
+              Modern digital experiences built for growth.
             </p>
             <div className="flex items-center gap-3">
               {socials.map((s) => (
@@ -46,7 +45,7 @@ export default function Footer() {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
-                  className="w-9 h-9 rounded-lg bg-[var(--card-bg)] border border-[var(--border)]
+                  className="w-10 h-10 rounded-lg bg-[var(--card-bg)] border border-[var(--border)]
                     flex items-center justify-center text-[var(--text-secondary)]
                     hover:text-[var(--accent)] hover:border-[var(--accent)] transition-all duration-200"
                 >
@@ -58,7 +57,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-display font-bold text-base text-[var(--text-primary)] mb-6">Quick Links</h4>
+            <h4 className="font-display font-bold text-base text-[var(--text-primary)] mb-7">Quick Links</h4>
             <ul className="space-y-4">
               {quickLinks.map((link) => (
                 <li key={link.label}>
@@ -76,7 +75,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-display font-bold text-base text-[var(--text-primary)] mb-6">Services</h4>
+            <h4 className="font-display font-bold text-base text-[var(--text-primary)] mb-7">Services</h4>
             <ul className="space-y-4">
               {services.map((s) => (
                 <li key={s.label}>
@@ -94,7 +93,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-display font-bold text-base text-[var(--text-primary)] mb-6">Contact</h4>
+            <h4 className="font-display font-bold text-base text-[var(--text-primary)] mb-7">Contact</h4>
             <ul className="space-y-5">
               <li className="flex items-start gap-3">
                 <Mail size={16} className="text-[var(--accent)] mt-0.5 shrink-0" />
@@ -111,7 +110,7 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="text-[var(--accent)] mt-0.5 shrink-0" />
                 <span className="font-body text-sm text-[var(--text-secondary)]">
-                  San Francisco, CA<br />United States
+                  San Francisco, CA
                 </span>
               </li>
             </ul>
@@ -125,13 +124,9 @@ export default function Footer() {
           <p className="font-body text-xs text-[var(--text-secondary)]">
             © 2026 ModernMind Solutions LLC. All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
-            <a href="#" className="font-body text-xs text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="font-body text-xs text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors">
-              Terms of Service
-            </a>
+          <div className="flex items-center gap-6">
+            <a href="#" className="font-body text-xs text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors">Privacy Policy</a>
+            <a href="#" className="font-body text-xs text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>

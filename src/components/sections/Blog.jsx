@@ -10,7 +10,6 @@ const posts = [
     category: 'Development',
     date: 'Apr 15, 2026',
     readTime: '5 min read',
-    excerpt: 'Explore the trends shaping the future of web development, from AI-assisted coding to edge computing and beyond.',
     image: '/images/blog-dev.png',
   },
   {
@@ -18,7 +17,6 @@ const posts = [
     category: 'Design',
     date: 'Apr 10, 2026',
     readTime: '7 min read',
-    excerpt: 'Why accessibility should be a first-class citizen in your design process and how to implement it effectively.',
     image: '/images/blog-design.png',
   },
   {
@@ -26,7 +24,6 @@ const posts = [
     category: 'AI',
     date: 'Apr 5, 2026',
     readTime: '6 min read',
-    excerpt: 'From personalized recommendations to predictive interfaces — AI is reshaping how users interact with products.',
     image: '/images/blog-ai.png',
   },
 ];
@@ -44,7 +41,6 @@ function BlogCard({ post, index }) {
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.12, duration: 0.5 }}
     >
-      {/* Real image */}
       <div className="aspect-[16/9] relative overflow-hidden">
         <img
           src={post.image}
@@ -54,26 +50,22 @@ function BlogCard({ post, index }) {
         />
       </div>
 
-      <div className="p-7 text-center flex flex-col items-center">
-        <div className="flex items-center justify-center gap-3 mb-4">
+      <div className="p-8 flex flex-col">
+        <div className="flex items-center gap-3 mb-5">
           <Badge>{post.category}</Badge>
-          <div className="flex items-center justify-center gap-1.5 text-[var(--text-secondary)]">
+          <div className="flex items-center gap-1.5 text-[var(--text-secondary)]">
             <Clock size={13} />
             <span className="font-body text-xs">{post.readTime}</span>
           </div>
         </div>
 
-        <h3 className="font-display text-lg font-bold text-[var(--text-primary)] mb-3 leading-snug group-hover:text-[var(--accent)] transition-colors duration-300">
+        <h3 className="font-display text-lg font-bold text-[var(--text-primary)] mb-7 leading-snug group-hover:text-[var(--accent)] transition-colors duration-300">
           {post.title}
         </h3>
 
-        <p className="font-body text-sm text-[var(--text-secondary)] mb-5 leading-relaxed line-clamp-2">
-          {post.excerpt}
-        </p>
-
-        <div className="flex items-center justify-center w-full pt-4 border-t border-[var(--border)] relative">
-          <span className="font-body text-xs text-[var(--text-secondary)] absolute left-0">{post.date}</span>
-          <span className="inline-flex items-center justify-center gap-1.5 font-body text-sm font-medium text-[var(--accent)] group-hover:gap-3 transition-all duration-300">
+        <div className="flex items-center justify-between pt-5 border-t border-[var(--border)] mt-auto">
+          <span className="font-body text-xs text-[var(--text-secondary)]">{post.date}</span>
+          <span className="inline-flex items-center gap-1.5 font-body text-sm font-medium text-[var(--accent)] group-hover:gap-3 transition-all duration-300">
             Read More <ArrowRight size={14} />
           </span>
         </div>
@@ -84,10 +76,14 @@ function BlogCard({ post, index }) {
 
 export default function Blog() {
   return (
-    <section id="blog" className="py-24 md:py-36 bg-[var(--bg-secondary)]">
+    <section id="blog" className="py-36 md:py-48 bg-transparent">
       <div className="container">
-        <SectionHeader overline="Our Blog" title="Latest Insights" subtitle="Thoughts, tutorials, and perspectives from our team on design, development, and technology." />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <SectionHeader
+          overline="Our Blog"
+          title="Latest Insights"
+          subtitle="Thoughts and perspectives from our team on design, development, and technology."
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {posts.map((post, i) => (
             <BlogCard key={post.title} post={post} index={i} />
           ))}
