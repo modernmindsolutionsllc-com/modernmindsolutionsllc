@@ -16,48 +16,71 @@ export default function Button({
 }) {
   const base = `
     inline-flex items-center justify-center gap-2
-    font-body font-semibold tracking-wide
-    rounded-xl border-2 border-transparent
-    transition-all duration-250 ease-out
+    font-body font-bold
+    rounded-full
+    border border-transparent
+    transition-all duration-300 ease-out
     cursor-pointer select-none
-    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--accent)]
+    whitespace-nowrap
+    leading-none
+    focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2
+    focus:ring-offset-[var(--bg)]
   `;
 
   const variants = {
     filled: `
-      bg-gradient-to-r from-[#F5A623] via-[#E8763A] to-[#D94F30]
-      border-transparent text-white
-      shadow-md hover:shadow-xl hover:shadow-orange-400/30
-      hover:brightness-110 active:brightness-95
+      bg-gradient-to-r from-[#F5A623] to-[#F15A24]
+      text-white
+      shadow-[0_10px_28px_rgba(241,90,36,0.28)]
+      hover:shadow-[0_14px_36px_rgba(241,90,36,0.38)]
+      hover:brightness-110
+      active:brightness-95
     `,
     outlined: `
-      bg-transparent border-2 border-[var(--accent)] text-[var(--accent)]
-      hover:bg-[var(--accent)] hover:text-white
+      bg-transparent
+      border-[var(--accent)]
+      text-[var(--accent)]
+      hover:bg-[var(--accent)]
+      hover:text-white
+      hover:shadow-[0_10px_28px_rgba(245,166,35,0.22)]
       active:brightness-95
     `,
     ghost: `
-      bg-transparent border-transparent text-[var(--text-secondary)]
-      hover:bg-[var(--card-bg)] hover:text-[var(--text-primary)]
+      bg-transparent
+      text-[var(--text-secondary)]
+      hover:bg-[var(--card-bg)]
+      hover:text-[var(--text-primary)]
     `,
     white: `
-      bg-white border-transparent text-[#1A1A2E]
-      shadow-md hover:shadow-xl hover:shadow-white/20
+      bg-white
+      text-[#1A1A2E]
+      shadow-[0_10px_28px_rgba(255,255,255,0.18)]
+      hover:shadow-[0_14px_36px_rgba(255,255,255,0.25)]
       active:brightness-95
     `,
     'white-outlined': `
-      bg-transparent border-2 border-white text-white
-      hover:bg-white hover:text-[#1A1A2E]
+      bg-transparent
+      border-white/80
+      text-white
+      hover:bg-white
+      hover:text-[#1A1A2E]
       active:brightness-95
     `,
   };
 
   const sizes = {
-    sm: 'px-5 py-2.5 text-sm',
-    md: 'px-7 py-3 text-sm',
-    lg: 'px-9 py-4 text-base',
+    sm: 'min-h-[44px] px-5 text-sm',
+    md: 'min-h-[50px] px-7 text-base',
+    lg: 'min-h-[56px] px-9 text-lg',
   };
 
-  const classes = `${base} ${variants[variant] ?? variants.filled} ${sizes[size] ?? sizes.md} ${className}`;
+  const classes = `
+    ${base}
+    ${variants[variant] ?? variants.filled}
+    ${sizes[size] ?? sizes.md}
+    ${className}
+  `;
+
   const Component = href ? motion.a : motion.button;
 
   return (
@@ -65,8 +88,8 @@ export default function Button({
       href={href}
       onClick={onClick}
       className={classes}
-      whileHover={{ scale: 1.025 }}
-      whileTap={{ scale: 0.97 }}
+      whileHover={{ y: -2, scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
       {...props}
     >
       {children}
