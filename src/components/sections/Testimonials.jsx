@@ -41,14 +41,14 @@ export default function Testimonials() {
   const next = () => setCurrent((c) => (c + 1) % testimonials.length);
 
   return (
-    <section id="testimonials" className="py-20 md:py-28 bg-[var(--bg-primary)]">
+    <section id="testimonials" className="py-24 md:py-36 bg-[var(--bg-primary)]">
       <div className="container">
         <SectionHeader overline="Testimonials" title="What Clients Say" subtitle="Don't just take our word for it — hear from the teams we've partnered with." />
 
         <div className="max-w-3xl mx-auto">
-          <div className="relative p-8 md:p-12 rounded-2xl bg-[var(--glass-bg)] backdrop-blur-md border border-[var(--border)]">
+          <div className="relative p-10 md:p-14 rounded-3xl bg-[var(--card-bg)] border border-[var(--border)] shadow-lg">
             {/* Decorative quote */}
-            <Quote size={48} className="text-[var(--accent)] opacity-20 absolute top-6 left-6" />
+            <Quote size={56} className="text-[var(--accent)] opacity-15 absolute top-8 left-8" />
 
             <AnimatePresence mode="wait">
               <motion.div
@@ -59,12 +59,12 @@ export default function Testimonials() {
                 transition={{ duration: 0.4 }}
                 className="text-center"
               >
-                <p className="font-body text-lg md:text-xl italic text-[var(--text-primary)] leading-relaxed mb-8 mt-4">
+                <p className="font-body text-lg md:text-xl italic text-[var(--text-primary)] leading-[1.8] mb-10 mt-6">
                   "{testimonials[current].quote}"
                 </p>
 
                 <div className="flex items-center justify-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent-amber to-accent-orange flex items-center justify-center text-white font-display font-bold text-sm">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-amber to-accent-orange flex items-center justify-center text-white font-display font-bold text-sm shadow-lg">
                     {testimonials[current].avatar}
                   </div>
                   <div className="text-left">
@@ -80,16 +80,16 @@ export default function Testimonials() {
             </AnimatePresence>
 
             {/* Controls */}
-            <div className="flex items-center justify-center gap-4 mt-8">
-              <button onClick={prev} className="w-10 h-10 rounded-full border border-[var(--border)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-all cursor-pointer" aria-label="Previous testimonial">
+            <div className="flex items-center justify-center gap-5 mt-10">
+              <button onClick={prev} className="w-11 h-11 rounded-full border border-[var(--border)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-all duration-300 cursor-pointer" aria-label="Previous testimonial">
                 <ChevronLeft size={18} />
               </button>
-              <div className="flex gap-2">
+              <div className="flex gap-2.5">
                 {testimonials.map((_, i) => (
-                  <button key={i} onClick={() => setCurrent(i)} className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${i === current ? 'bg-[var(--accent)] w-6' : 'bg-[var(--border)]'}`} aria-label={`Go to testimonial ${i + 1}`} />
+                  <button key={i} onClick={() => setCurrent(i)} className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${i === current ? 'bg-[var(--accent)] w-7' : 'bg-[var(--border)] w-2.5'}`} aria-label={`Go to testimonial ${i + 1}`} />
                 ))}
               </div>
-              <button onClick={next} className="w-10 h-10 rounded-full border border-[var(--border)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-all cursor-pointer" aria-label="Next testimonial">
+              <button onClick={next} className="w-11 h-11 rounded-full border border-[var(--border)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-all duration-300 cursor-pointer" aria-label="Next testimonial">
                 <ChevronRight size={18} />
               </button>
             </div>

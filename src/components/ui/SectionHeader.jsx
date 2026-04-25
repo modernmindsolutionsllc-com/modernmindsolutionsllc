@@ -7,14 +7,14 @@ export default function SectionHeader({ overline, title, subtitle, centered = tr
   return (
     <motion.div
       ref={ref}
-      className={`mb-12 md:mb-16 ${centered ? 'text-center' : ''}`}
+      className={`mb-16 md:mb-20 ${centered ? 'text-center' : ''}`}
       initial={{ opacity: 0, y: 30 }}
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
       {overline && (
         <span
-          className={`inline-block font-body text-sm font-medium tracking-[0.2em] uppercase mb-3 ${
+          className={`inline-block font-body text-xs font-medium tracking-[0.25em] uppercase mb-4 ${
             light ? 'text-amber-200' : 'text-[var(--accent)]'
           }`}
         >
@@ -22,7 +22,7 @@ export default function SectionHeader({ overline, title, subtitle, centered = tr
         </span>
       )}
       <h2
-        className={`font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight ${
+        className={`font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight ${
           light ? 'text-white' : 'text-[var(--text-primary)]'
         }`}
       >

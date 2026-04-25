@@ -26,10 +26,10 @@ function TechIcon({ tech, index }) {
 
   return (
     <div className={`group relative ${anim}`} style={{ animationDelay: `${tech.delay}s` }}>
-      <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-[var(--card-bg)] border border-[var(--border)] hover:border-[var(--accent)] hover:shadow-lg hover:shadow-[var(--accent)]/10 flex items-center justify-center transition-all duration-300 cursor-default">
-        <span className="font-display text-xs md:text-sm font-bold text-center leading-tight px-2" style={{ color: tech.color }}>{tech.name}</span>
+      <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-[var(--card-bg)] border border-[var(--border)] hover:border-[var(--accent)]/40 hover:shadow-xl hover:shadow-[var(--accent)]/8 flex items-center justify-center transition-all duration-400 cursor-default">
+        <span className="font-display text-xs md:text-sm font-bold text-center leading-tight px-3" style={{ color: tech.color }}>{tech.name}</span>
       </div>
-      <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-lg bg-[var(--text-primary)] text-[var(--bg-primary)] font-body text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+      <div className="absolute -top-11 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-lg bg-[var(--text-primary)] text-[var(--bg-primary)] font-body text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
         {tech.name}
       </div>
     </div>
@@ -39,10 +39,10 @@ function TechIcon({ tech, index }) {
 export default function TechStack() {
   const [ref, isVisible] = useScrollAnimation();
   return (
-    <section id="tech-stack" className="py-20 md:py-28 bg-[var(--bg-secondary)]">
+    <section id="tech-stack" className="py-24 md:py-36 bg-[var(--bg-secondary)]">
       <div className="container">
         <SectionHeader overline="Our Toolkit" title="Technologies We Master" subtitle="We leverage cutting-edge technologies to build robust, scalable, and future-proof solutions." />
-        <motion.div ref={ref} className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-4xl mx-auto" initial={{ opacity: 0 }} animate={isVisible ? { opacity: 1 } : {}} transition={{ duration: 0.6 }}>
+        <motion.div ref={ref} className="flex flex-wrap justify-center gap-5 md:gap-8 max-w-5xl mx-auto" initial={{ opacity: 0 }} animate={isVisible ? { opacity: 1 } : {}} transition={{ duration: 0.6 }}>
           {techs.map((tech, i) => (
             <motion.div key={tech.name} initial={{ opacity: 0, scale: 0.5 }} animate={isVisible ? { opacity: 1, scale: 1 } : {}} transition={{ delay: i * 0.05, duration: 0.4 }}>
               <TechIcon tech={tech} index={i} />

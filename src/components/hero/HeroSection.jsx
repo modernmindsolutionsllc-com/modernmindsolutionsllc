@@ -9,7 +9,7 @@ const textVariants = {
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: 0.3 + i * 0.1, duration: 0.6, ease: 'easeOut' },
+    transition: { delay: 0.3 + i * 0.12, duration: 0.6, ease: 'easeOut' },
   }),
 };
 
@@ -17,14 +17,14 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden pt-20"
+      className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-12"
       style={{ background: 'var(--gradient-glow), var(--bg-primary)' }}
     >
-      <div className="container grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center">
+      <div className="container grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         {/* Text Content — left 55% */}
         <div className="lg:col-span-7 z-10 text-center lg:text-left">
           <motion.span
-            className="inline-block font-body text-sm font-medium tracking-[0.2em] uppercase text-[var(--accent)] mb-4"
+            className="inline-block font-body text-xs font-medium tracking-[0.25em] uppercase text-[var(--accent)] mb-6"
             custom={0}
             initial="hidden"
             animate="visible"
@@ -34,7 +34,7 @@ export default function HeroSection() {
           </motion.span>
 
           <motion.h1
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-bold leading-[1.1] text-[var(--text-primary)] mb-6"
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.08] text-[var(--text-primary)] mb-8"
             custom={1}
             initial="hidden"
             animate="visible"
@@ -48,7 +48,7 @@ export default function HeroSection() {
           </motion.h1>
 
           <motion.p
-            className="font-body text-base md:text-lg text-[var(--text-secondary)] max-w-xl mb-8 leading-relaxed mx-auto lg:mx-0"
+            className="font-body text-base md:text-lg text-[var(--text-secondary)] max-w-lg mb-10 leading-[1.8] mx-auto lg:mx-0"
             custom={2}
             initial="hidden"
             animate="visible"
@@ -59,7 +59,7 @@ export default function HeroSection() {
           </motion.p>
 
           <motion.div
-            className="flex flex-wrap gap-4 justify-center lg:justify-start"
+            className="flex flex-wrap gap-5 justify-center lg:justify-start"
             custom={3}
             initial="hidden"
             animate="visible"
@@ -76,8 +76,8 @@ export default function HeroSection() {
 
         {/* Three.js Visual — right 45% */}
         <motion.div
-          className="lg:col-span-5 h-[350px] sm:h-[400px] lg:h-[550px]"
-          initial={{ opacity: 0, scale: 0.8 }}
+          className="lg:col-span-5 h-[350px] sm:h-[420px] lg:h-[560px]"
+          initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
         >

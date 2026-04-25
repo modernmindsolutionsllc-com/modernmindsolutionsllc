@@ -25,8 +25,8 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="bg-[var(--bg-secondary)] border-t border-[var(--border)]">
-      <div className="container py-16 md:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+      <div className="container py-20 md:py-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Brand Column */}
           <div className="sm:col-span-2 lg:col-span-1">
             <a href="#home" className="flex items-center gap-2 mb-4">
@@ -37,7 +37,7 @@ export default function Footer() {
                 ModernMind
               </span>
             </a>
-            <p className="font-body text-sm text-[var(--text-secondary)] mb-6 leading-relaxed max-w-xs">
+            <p className="font-body text-sm text-[var(--text-secondary)] mb-8 leading-[1.8] max-w-xs">
               Building digital experiences that move people. Modern solutions for modern challenges.
             </p>
             <div className="flex items-center gap-3">
@@ -58,8 +58,8 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-display font-bold text-base text-[var(--text-primary)] mb-5">Quick Links</h4>
-            <ul className="space-y-3">
+            <h4 className="font-display font-bold text-base text-[var(--text-primary)] mb-6">Quick Links</h4>
+            <ul className="space-y-4">
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   <a
@@ -76,8 +76,8 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-display font-bold text-base text-[var(--text-primary)] mb-5">Services</h4>
-            <ul className="space-y-3">
+            <h4 className="font-display font-bold text-base text-[var(--text-primary)] mb-6">Services</h4>
+            <ul className="space-y-4">
               {services.map((s) => (
                 <li key={s.label}>
                   <a
@@ -94,8 +94,8 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-display font-bold text-base text-[var(--text-primary)] mb-5">Contact</h4>
-            <ul className="space-y-4">
+            <h4 className="font-display font-bold text-base text-[var(--text-primary)] mb-6">Contact</h4>
+            <ul className="space-y-5">
               <li className="flex items-start gap-3">
                 <Mail size={16} className="text-[var(--accent)] mt-0.5 shrink-0" />
                 <a href="mailto:hello@modernmind.dev" className="font-body text-sm text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors">
@@ -121,7 +121,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-[var(--border)]">
-        <div className="container py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="container py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-body text-xs text-[var(--text-secondary)]">
             © 2026 ModernMind Solutions LLC. All rights reserved.
           </p>
