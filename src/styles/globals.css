@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+/* ===== Font Imports ===== */
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=satoshi@400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+
+/* ===== Tailwind v4 Theme ===== */
+@theme {
+  --font-display: 'Clash Display', sans-serif;
+  --font-body: 'Satoshi', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-primary-blue: #3B5EE6;
+  --color-accent-amber: #F5A623;
+  --color-accent-orange: #E8763A;
+  --color-accent-deep: #D94F30;
+  --color-pixel-lavender: #8B7FD4;
+
+  --color-light-bg: #FEFCF9;
+  --color-light-bg-secondary: #FFF7ED;
+  --color-light-text: #1A1A2E;
+  --color-light-text-secondary: #6B6B7B;
+  --color-light-border: #E8E0D8;
+  --color-light-card: #FFFFFF;
+
+  --color-dark-bg: #0F0F17;
+  --color-dark-bg-secondary: #1A1A2E;
+  --color-dark-text: #F5F0EB;
+  --color-dark-text-secondary: #9A9AAF;
+  --color-dark-border: #2A2A3E;
+  --color-dark-card: #1E1E30;
+
+  --breakpoint-xs: 480px;
+}
+
+/* ===== CSS Custom Properties for Theme Switching ===== */
+:root {
+  --bg-primary: #FEFCF9;
+  --bg-secondary: #FFF7ED;
+  --text-primary: #1A1A2E;
+  --text-secondary: #6B6B7B;
+  --border: #E8E0D8;
+  --card-bg: #FFFFFF;
+  --accent: #E8763A;
+  --accent-hover: #D94F30;
+  --gradient-primary: linear-gradient(135deg, #F5A623 0%, #E8763A 50%, #D94F30 100%);
+  --gradient-subtle: linear-gradient(135deg, #FFF7ED 0%, #FFF1E6 100%);
+  --gradient-glow: radial-gradient(circle at 30% 50%, rgba(245,166,35,0.15), transparent 60%);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(232, 224, 216, 0.5);
+  --nav-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0F0F17;
+  --bg-secondary: #1A1A2E;
+  --text-primary: #F5F0EB;
+  --text-secondary: #9A9AAF;
+  --border: #2A2A3E;
+  --card-bg: #1E1E30;
+  --accent: #F5A623;
+  --accent-hover: #E8763A;
+  --gradient-primary: linear-gradient(135deg, #F5A623 0%, #E8763A 50%, #D94F30 100%);
+  --gradient-subtle: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+  --gradient-glow: radial-gradient(circle at 30% 50%, rgba(245,166,35,0.2), transparent 60%);
+  --glass-bg: rgba(30, 30, 48, 0.6);
+  --glass-border: rgba(42, 42, 62, 0.5);
+  --nav-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* ===== Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Transitions for theme switching ===== */
+*, *::before, *::after {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ===== Selection ===== */
+::selection {
+  background-color: rgba(245, 166, 35, 0.3);
+  color: var(--text-primary);
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover);
+}
+
+/* ===== Logo Carousel Animation ===== */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===== Float Animation for Tech Icons ===== */
+@keyframes float-1 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes float-2 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes float-3 {
+  0%, 100% { transform: translateY(-4px); }
+  50% { transform: translateY(8px); }
+}
+
+/* ===== Bounce Animation for Scroll Indicator ===== */
+@keyframes bounce-down {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(10px); opacity: 1; }
+}
+
+/* ===== Container ===== */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 4rem;
+  }
+}
