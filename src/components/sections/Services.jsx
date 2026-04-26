@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Brain, BriefcaseBusiness, Code, Palette, Settings2, Smartphone } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
@@ -80,6 +81,47 @@ function ServiceCard({ service, index }) {
 }
 
 export default function Services() {
+  const servicesTrackRef = useRef(null);
+  const servicesSliderRef = useRef(null);
+
+  useEffect(() => {
+    const track = servicesTrackRef.current;
+    const slider = servicesSliderRef.current;
+
+    if (!track || !slider) return undefined;
+
+    const updateSlider = () => {
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      const progress = maxScroll > 0 ? (track.scrollLeft / maxScroll) * 100 : 0;
+
+      slider.value = String(progress);
+      slider.style.setProperty('--slider-progress', `${progress}%`);
+    };
+
+    const animationFrame = requestAnimationFrame(updateSlider);
+
+    track.addEventListener('scroll', updateSlider, { passive: true });
+    window.addEventListener('resize', updateSlider);
+
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      track.removeEventListener('scroll', updateSlider);
+      window.removeEventListener('resize', updateSlider);
+    };
+  }, []);
+
+  const handleSliderInput = (event) => {
+    const track = servicesTrackRef.current;
+
+    if (!track) return;
+
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    const progress = Number(event.target.value);
+
+    track.scrollLeft = (maxScroll * progress) / 100;
+    event.target.style.setProperty('--slider-progress', `${progress}%`);
+  };
+
   return (
     <section id="services" className="py-44 md:py-56 bg-transparent">
       <div className="container">
@@ -89,10 +131,26 @@ export default function Services() {
           subtitle="End-to-end digital solutions tailored to your business."
         />
 
-        <div className="scrollbar-hidden flex snap-x snap-mandatory gap-8 overflow-x-auto pb-4">
+        <div
+          ref={servicesTrackRef}
+          className="scrollbar-hidden flex snap-x snap-mandatory gap-8 overflow-x-auto pb-4"
+        >
           {services.map((service, i) => (
             <ServiceCard key={service.title} service={service} index={i} />
           ))}
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <input
+            ref={servicesSliderRef}
+            type="range"
+            min="0"
+            max="100"
+            defaultValue="0"
+            aria-label="Scroll services"
+            onInput={handleSliderInput}
+            className="service-slider w-full max-w-md"
+          />
         </div>
       </div>
     </section>
