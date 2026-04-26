@@ -12,6 +12,7 @@ export default function Button({
   href,
   onClick,
   className = '',
+  style: styleProp = {},
   ...props
 }) {
   const base = `
@@ -23,6 +24,7 @@ export default function Button({
     cursor-pointer select-none
     whitespace-nowrap
     leading-none
+    shrink-0
     focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2
     focus:ring-offset-[var(--bg)]
   `;
@@ -68,16 +70,18 @@ export default function Button({
     `,
   };
 
-  const sizes = {
-    sm: 'min-h-[44px] px-5 text-sm',
-    md: 'min-h-[50px] px-7 text-base',
-    lg: 'min-h-[56px] px-9 text-lg',
+  // Inline styles for size-dependent properties — Tailwind v4 cannot reliably
+  // detect dynamically-assembled class names inside JS objects, so padding/height
+  // classes were computing to 0px. Using inline styles guarantees correct layout.
+  const sizeStyles = {
+    sm: { minHeight: '44px', padding: '0 1.75rem', fontSize: '0.875rem' },
+    md: { minHeight: '50px', padding: '0 2.25rem', fontSize: '1rem' },
+    lg: { minHeight: '56px', padding: '0 2.75rem', fontSize: '1.125rem' },
   };
 
   const classes = `
     ${base}
     ${variants[variant] ?? variants.filled}
-    ${sizes[size] ?? sizes.md}
     ${className}
   `;
 
@@ -88,6 +92,7 @@ export default function Button({
       href={href}
       onClick={onClick}
       className={classes}
+      style={{ ...(sizeStyles[size] ?? sizeStyles.md), ...styleProp }}
       whileHover={{ y: -2, scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       {...props}
