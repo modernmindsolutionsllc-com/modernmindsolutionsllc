@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Brain, BriefcaseBusiness, Code, Palette, Settings2, Smartphone } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
@@ -82,44 +82,77 @@ function ServiceCard({ service, index }) {
 
 export default function Services() {
   const servicesTrackRef = useRef(null);
-  const servicesSliderRef = useRef(null);
+  const scrollBarTrackRef = useRef(null);
+  const [thumbLeft, setThumbLeft] = useState(0);
+  const [thumbWidth, setThumbWidth] = useState(30);
+  const isDragging = useRef(false);
+  const dragStartX = useRef(0);
+  const dragStartLeft = useRef(0);
+
+  const computeThumb = useCallback(() => {
+    const track = servicesTrackRef.current;
+    const bar = scrollBarTrackRef.current;
+    if (!track || !bar) return;
+    const ratio = track.clientWidth / track.scrollWidth;
+    const thumbW = Math.max(ratio * bar.clientWidth, 40);
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    const progress = maxScroll > 0 ? track.scrollLeft / maxScroll : 0;
+    const maxLeft = bar.clientWidth - thumbW;
+    setThumbWidth(thumbW);
+    setThumbLeft(progress * maxLeft);
+  }, []);
 
   useEffect(() => {
     const track = servicesTrackRef.current;
-    const slider = servicesSliderRef.current;
-
-    if (!track || !slider) return undefined;
-
-    const updateSlider = () => {
-      const maxScroll = track.scrollWidth - track.clientWidth;
-      const progress = maxScroll > 0 ? (track.scrollLeft / maxScroll) * 100 : 0;
-
-      slider.value = String(progress);
-      slider.style.setProperty('--slider-progress', `${progress}%`);
-    };
-
-    const animationFrame = requestAnimationFrame(updateSlider);
-
-    track.addEventListener('scroll', updateSlider, { passive: true });
-    window.addEventListener('resize', updateSlider);
-
-    return () => {
-      cancelAnimationFrame(animationFrame);
-      track.removeEventListener('scroll', updateSlider);
-      window.removeEventListener('resize', updateSlider);
-    };
-  }, []);
-
-  const handleSliderInput = (event) => {
-    const track = servicesTrackRef.current;
-
     if (!track) return;
+    computeThumb();
+    track.addEventListener('scroll', computeThumb, { passive: true });
+    window.addEventListener('resize', computeThumb);
+    return () => {
+      track.removeEventListener('scroll', computeThumb);
+      window.removeEventListener('resize', computeThumb);
+    };
+  }, [computeThumb]);
 
-    const maxScroll = track.scrollWidth - track.clientWidth;
-    const progress = Number(event.target.value);
+  /* Drag the thumb */
+  const handleThumbMouseDown = (e) => {
+    isDragging.current = true;
+    dragStartX.current = e.clientX;
+    dragStartLeft.current = thumbLeft;
+    e.preventDefault();
+  };
 
-    track.scrollLeft = (maxScroll * progress) / 100;
-    event.target.style.setProperty('--slider-progress', `${progress}%`);
+  useEffect(() => {
+    const onMove = (e) => {
+      if (!isDragging.current) return;
+      const bar = scrollBarTrackRef.current;
+      const track = servicesTrackRef.current;
+      if (!bar || !track) return;
+      const dx = e.clientX - dragStartX.current;
+      const maxLeft = bar.clientWidth - thumbWidth;
+      const newLeft = Math.min(Math.max(dragStartLeft.current + dx, 0), maxLeft);
+      const progress = maxLeft > 0 ? newLeft / maxLeft : 0;
+      track.scrollLeft = progress * (track.scrollWidth - track.clientWidth);
+    };
+    const onUp = () => { isDragging.current = false; };
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+    return () => {
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+    };
+  }, [thumbWidth]);
+
+  /* Click on the track to jump */
+  const handleTrackClick = (e) => {
+    const bar = scrollBarTrackRef.current;
+    const track = servicesTrackRef.current;
+    if (!bar || !track) return;
+    const rect = bar.getBoundingClientRect();
+    const clickX = e.clientX - rect.left - thumbWidth / 2;
+    const maxLeft = bar.clientWidth - thumbWidth;
+    const progress = Math.min(Math.max(clickX / maxLeft, 0), 1);
+    track.scrollLeft = progress * (track.scrollWidth - track.clientWidth);
   };
 
   return (
@@ -140,17 +173,21 @@ export default function Services() {
           ))}
         </div>
 
+        {/* Custom scroll indicator */}
         <div className="mt-8 flex justify-center">
-          <input
-            ref={servicesSliderRef}
-            type="range"
-            min="0"
-            max="100"
-            defaultValue="0"
+          <div
+            ref={scrollBarTrackRef}
+            onClick={handleTrackClick}
+            className="service-scrollbar-track"
+            role="scrollbar"
             aria-label="Scroll services"
-            onInput={handleSliderInput}
-            className="service-slider w-full max-w-md"
-          />
+          >
+            <div
+              className="service-scrollbar-thumb"
+              style={{ width: thumbWidth, left: thumbLeft }}
+              onMouseDown={handleThumbMouseDown}
+            />
+          </div>
         </div>
       </div>
     </section>

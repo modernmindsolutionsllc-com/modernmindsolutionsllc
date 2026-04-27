@@ -109,60 +109,34 @@ body {
   display: none;
 }
 
-.service-slider {
-  --slider-progress: 0%;
-  height: 0.35rem;
+/* ── Service carousel scroll indicator ── */
+.service-scrollbar-track {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  height: 3px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--border) 70%, transparent);
   cursor: pointer;
-  appearance: none;
-  border-radius: 999px;
-  background:
-    linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) var(--slider-progress), transparent var(--slider-progress)),
-    color-mix(in srgb, var(--border) 72%, transparent);
-  outline: none;
 }
 
-.service-slider::-webkit-slider-thumb {
-  appearance: none;
-  width: 1rem;
-  height: 1rem;
-  border: 2px solid var(--card-bg);
+.service-scrollbar-thumb {
+  position: absolute;
+  top: 0;
+  height: 3px;
   border-radius: 999px;
   background: var(--accent);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  cursor: grab;
+  transition: background 0.2s ease;
+  user-select: none;
 }
 
-.service-slider::-webkit-slider-thumb:hover {
-  transform: scale(1.12);
+.service-scrollbar-thumb:hover {
   background: var(--accent-hover);
 }
 
-.service-slider::-moz-range-track {
-  height: 0.35rem;
-  border: 0;
-  border-radius: 999px;
-  background: transparent;
-}
-
-.service-slider::-moz-range-progress {
-  height: 0.35rem;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-hover));
-}
-
-.service-slider::-moz-range-thumb {
-  width: 1rem;
-  height: 1rem;
-  border: 2px solid var(--card-bg);
-  border-radius: 999px;
-  background: var(--accent);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.service-slider::-moz-range-thumb:hover {
-  transform: scale(1.12);
-  background: var(--accent-hover);
+.service-scrollbar-thumb:active {
+  cursor: grabbing;
 }
 
 .contact-form-shell {
@@ -177,6 +151,14 @@ body {
   .contact-form-shell {
     width: min(calc(100% - 4rem), 980px);
   }
+}
+
+/* Fix form field inner padding — overrides the global reset */
+.contact-form-shell input,
+.contact-form-shell select,
+.contact-form-shell textarea {
+  padding-left: 1.25rem !important;
+  padding-right: 1.25rem !important;
 }
 
 @keyframes scroll-left {
