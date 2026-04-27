@@ -47,7 +47,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="w-full py-20 sm:py-28 md:py-40 bg-transparent overflow-hidden"
+      className="w-full py-24 sm:py-32 md:py-48 lg:py-64 bg-transparent overflow-hidden"
     >
       <div className="container">
         <SectionHeader

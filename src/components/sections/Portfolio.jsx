@@ -78,7 +78,7 @@ function ProjectCard({ project, index }) {
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="py-20 sm:py-28 md:py-44 bg-transparent">
+    <section id="portfolio" className="py-24 sm:py-32 md:py-40 lg:py-52 bg-transparent">
       <div className="container">
         <SectionHeader
           overline="Our Work"

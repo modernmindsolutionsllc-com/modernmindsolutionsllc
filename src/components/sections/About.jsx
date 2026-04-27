@@ -31,7 +31,7 @@ export default function About() {
   const [ref, isVisible] = useScrollAnimation();
 
   return (
-    <section id="about" className="py-20 sm:py-28 md:py-44 bg-transparent">
+    <section id="about" className="py-24 sm:py-32 md:py-40 lg:py-52 bg-transparent">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 items-start">
           {/* Text */}

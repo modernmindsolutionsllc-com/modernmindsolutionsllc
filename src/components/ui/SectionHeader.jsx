@@ -7,7 +7,7 @@ export default function SectionHeader({ overline, title, subtitle, centered = tr
   return (
     <motion.div
       ref={ref}
-      className={`mb-14 sm:mb-20 md:mb-28 w-full ${
+      className={`mb-16 sm:mb-20 md:mb-24 lg:mb-32 w-full ${
         centered ? 'flex flex-col items-center text-center' : 'text-left'
       }`}
       initial={{ opacity: 0, y: 30 }}
