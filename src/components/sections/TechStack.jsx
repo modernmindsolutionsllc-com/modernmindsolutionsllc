@@ -26,8 +26,8 @@ function TechIcon({ tech, index }) {
 
   return (
     <div className={`group relative ${anim}`} style={{ animationDelay: `${tech.delay}s` }}>
-      <div className="w-28 h-28 md:w-32 md:h-32 rounded-2xl bg-[var(--card-bg)] border border-[var(--border)] hover:border-[var(--accent)]/40 hover:shadow-xl hover:shadow-[var(--accent)]/8 flex items-center justify-center transition-all duration-400 cursor-default">
-        <span className="font-display text-sm md:text-base font-bold text-center leading-tight px-4" style={{ color: tech.color }}>{tech.name}</span>
+      <div className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-2xl bg-[var(--card-bg)] border border-[var(--border)] hover:border-[var(--accent)]/40 hover:shadow-xl hover:shadow-[var(--accent)]/8 flex items-center justify-center transition-all duration-400 cursor-default">
+        <span className="font-display text-xs sm:text-sm md:text-base font-bold text-center leading-tight px-2 sm:px-4" style={{ color: tech.color }}>{tech.name}</span>
       </div>
       <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3.5 py-2 rounded-lg bg-[var(--text-primary)] text-[var(--bg-primary)] font-body text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
         {tech.name}
@@ -39,7 +39,7 @@ function TechIcon({ tech, index }) {
 export default function TechStack() {
   const [ref, isVisible] = useScrollAnimation();
   return (
-    <section id="tech-stack" className="py-44 md:py-56 bg-transparent">
+    <section id="tech-stack" className="py-20 sm:py-28 md:py-44 bg-transparent">
       <div className="container">
         <SectionHeader
           overline="Our Toolkit"
@@ -48,7 +48,7 @@ export default function TechStack() {
         />
         <motion.div
           ref={ref}
-          className="flex flex-wrap justify-center gap-6 md:gap-10 max-w-6xl mx-auto"
+          className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-10 max-w-6xl mx-auto"
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}

@@ -17,10 +17,10 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden pt-28 pb-20"
+      className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16 sm:pt-28 sm:pb-20"
       style={{ background: 'var(--gradient-glow), var(--bg-primary)' }}
     >
-      <div className="container grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-center">
+      <div className="container grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-14 lg:gap-12 items-center">
         {/* Text Content */}
         <div className="lg:col-span-7 z-10 text-center lg:text-left">
           <motion.span
@@ -75,7 +75,7 @@ export default function HeroSection() {
 
         {/* Three.js Visual */}
         <motion.div
-          className="lg:col-span-5 h-[350px] sm:h-[420px] lg:h-[560px]"
+          className="lg:col-span-5 h-[280px] sm:h-[380px] md:h-[420px] lg:h-[560px]"
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}

@@ -31,9 +31,9 @@ export default function About() {
   const [ref, isVisible] = useScrollAnimation();
 
   return (
-    <section id="about" className="py-44 md:py-56 bg-transparent">
+    <section id="about" className="py-20 sm:py-28 md:py-44 bg-transparent">
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 items-start">
           {/* Text */}
           <motion.div
             ref={ref}
@@ -58,7 +58,7 @@ export default function About() {
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-8">
               {stats.map((stat) => (
                 <StatCard key={stat.label} stat={stat} />
               ))}
@@ -67,7 +67,7 @@ export default function About() {
 
           {/* Visual */}
           <motion.div
-            className="lg:col-span-5 lg:mt-28 xl:mt-32"
+            className="lg:col-span-5 lg:mt-16 xl:mt-20"
             initial={{ opacity: 0, x: 40 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6, ease: 'easeOut' }}

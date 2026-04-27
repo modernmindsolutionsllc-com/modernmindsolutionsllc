@@ -50,7 +50,7 @@ function BlogCard({ post, index }) {
         />
       </div>
 
-      <div className="p-8 flex flex-col">
+      <div className="p-5 sm:p-8 flex flex-col">
         <div className="flex items-center gap-3 mb-5">
           <Badge>{post.category}</Badge>
           <div className="flex items-center gap-1.5 text-[var(--text-secondary)]">
@@ -76,14 +76,14 @@ function BlogCard({ post, index }) {
 
 export default function Blog() {
   return (
-    <section id="blog" className="py-44 md:py-56 bg-transparent">
+    <section id="blog" className="py-20 sm:py-28 md:py-44 bg-transparent">
       <div className="container">
         <SectionHeader
           overline="Our Blog"
           title="Latest Insights"
           subtitle="Thoughts and perspectives from our team on design, development, and technology."
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20 md:mb-32">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mb-12 md:mb-20">
           {posts.map((post, i) => (
             <BlogCard key={post.title} post={post} index={i} />
           ))}

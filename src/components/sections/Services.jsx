@@ -44,8 +44,8 @@ function ServiceCard({ service, index }) {
   return (
     <motion.div
       ref={ref}
-      className="group flex h-full min-h-[300px] w-[min(78vw,18rem)] shrink-0 snap-start flex-col items-center text-center
-        rounded-2xl p-8 sm:w-[19rem] xl:w-[20rem]
+      className="group flex h-full min-h-[280px] w-[min(80vw,17rem)] shrink-0 snap-start flex-col items-center text-center
+        rounded-2xl p-6 sm:p-8 sm:w-[19rem] xl:w-[20rem]
         bg-[var(--card-bg)] border border-[var(--border)]
         hover:border-[var(--accent)]/40
         hover:shadow-2xl hover:shadow-[var(--accent)]/8
@@ -156,7 +156,7 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-44 md:py-56 bg-transparent">
+    <section id="services" className="py-20 sm:py-28 md:py-44 bg-transparent">
       <div className="container">
         <SectionHeader
           overline="What We Do"

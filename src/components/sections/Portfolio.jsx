@@ -78,7 +78,7 @@ function ProjectCard({ project, index }) {
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="py-44 md:py-56 bg-transparent">
+    <section id="portfolio" className="py-20 sm:py-28 md:py-44 bg-transparent">
       <div className="container">
         <SectionHeader
           overline="Our Work"
@@ -86,7 +86,7 @@ export default function Portfolio() {
           subtitle="A selection of our recent work in design, development, and problem-solving."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-10 mb-12 md:mb-16">
           {projects.map((project, i) => (
             <ProjectCard key={project.title} project={project} index={i} />
           ))}

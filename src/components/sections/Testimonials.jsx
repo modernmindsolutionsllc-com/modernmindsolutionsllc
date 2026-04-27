@@ -47,7 +47,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="w-full py-40 md:py-52 bg-transparent overflow-hidden"
+      className="w-full py-20 sm:py-28 md:py-40 bg-transparent overflow-hidden"
     >
       <div className="container">
         <SectionHeader
@@ -58,7 +58,7 @@ export default function Testimonials() {
 
         {/* Card wrapper */}
         <div className="w-full flex justify-center">
-          <div className="relative w-full max-w-5xl rounded-3xl bg-[var(--card-bg)] border border-[var(--border)] shadow-lg px-6 py-10 sm:px-10 md:px-16 md:py-14">
+          <div className="relative w-full max-w-5xl rounded-3xl bg-[var(--card-bg)] border border-[var(--border)] shadow-lg px-5 py-8 sm:px-10 md:px-16 md:py-14">
 
             <Quote
               size={48}

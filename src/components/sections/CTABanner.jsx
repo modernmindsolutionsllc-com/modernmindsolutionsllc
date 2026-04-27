@@ -56,7 +56,7 @@ export default function CTABanner() {
   return (
     <section
       id="contact"
-      className="relative w-full py-32 md:py-44 mt-20 md:mt-32 overflow-hidden"
+      className="relative w-full py-16 sm:py-24 md:py-44 mt-10 md:mt-20 overflow-hidden"
     >
       <motion.div
         ref={ref}
@@ -79,7 +79,7 @@ export default function CTABanner() {
 
         <form
           onSubmit={handleSubmit}
-          className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 md:gap-6"
+          className="grid w-full grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 md:gap-6"
         >
           <input
             required

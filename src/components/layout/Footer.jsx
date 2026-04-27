@@ -25,8 +25,8 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="bg-transparent border-t border-[var(--border)]">
-      <div className="container py-24 md:py-32">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-20">
+      <div className="container py-14 sm:py-20 md:py-32">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 lg:gap-20">
           {/* Brand Column */}
           <div className="sm:col-span-2 lg:col-span-1">
             <a href="#home" className="flex items-center mb-6">
