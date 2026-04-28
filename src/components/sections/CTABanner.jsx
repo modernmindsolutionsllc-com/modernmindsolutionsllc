@@ -127,7 +127,7 @@ export default function CTABanner() {
   return (
     <section
       id="contact"
-      className="relative w-full py-28 sm:py-36 md:py-48 lg:py-64 mt-16 md:mt-24 lg:mt-32 overflow-hidden"
+      className="section relative w-full overflow-hidden"
     >
       {/* ── "Query Submitted" success overlay banner ────────────────────────── */}
       <AnimatePresence>

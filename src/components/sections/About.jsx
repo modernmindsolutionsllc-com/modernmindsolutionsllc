@@ -31,7 +31,7 @@ export default function About() {
   const [ref, isVisible] = useScrollAnimation();
 
   return (
-    <section id="about" className="py-24 sm:py-32 md:py-40 lg:py-52 bg-transparent">
+    <section id="about" className="section bg-transparent">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 items-start">
           {/* Text */}
@@ -52,7 +52,7 @@ export default function About() {
               </span>
             </h2>
 
-            <p className="font-body text-base md:text-lg text-[var(--text-secondary)] leading-[1.85] mb-16">
+            <p className="font-body text-base md:text-lg text-[var(--text-secondary)] leading-[1.85] mb-8">
               We bridge great design and powerful engineering — partnering with startups and enterprises
               to turn ambitious ideas into reality.
             </p>

@@ -189,3 +189,27 @@ body {
 @media (min-width: 640px) { .container { padding: 0 3rem; } }
 @media (min-width: 1024px) { .container { padding: 0 5rem; } }
 @media (min-width: 1440px) { .container { padding: 0 6rem; } }
+
+/* ── Consistent section vertical rhythm ── */
+.section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+@media (min-width: 640px) {
+  .section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+@media (min-width: 768px) {
+  .section {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
