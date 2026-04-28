@@ -74,8 +74,8 @@ function NeuralMesh({ isDark }) {
     }
   });
 
-  const nodeColor = isDark ? '#F5A623' : '#E8763A';
-  const lineColor = isDark ? '#F5A623' : '#E8763A';
+  const nodeColor = isDark ? '#38BDF8' : '#0EA5E9';
+  const lineColor = isDark ? '#38BDF8' : '#0EA5E9';
 
   return (
     <group ref={meshRef}>
@@ -137,8 +137,8 @@ function Scene({ isDark }) {
   return (
     <>
       <ambientLight intensity={0.3} />
-      <pointLight position={[5, 5, 5]} intensity={0.5} color="#F5A623" />
-      <pointLight position={[-5, -5, -3]} intensity={0.3} color="#E8763A" />
+      <pointLight position={[5, 5, 5]} intensity={0.5} color="#0EA5E9" />
+      <pointLight position={[-5, -5, -3]} intensity={0.3} color="#0F766E" />
 
       <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
         <NeuralMesh isDark={isDark} />
@@ -149,7 +149,7 @@ function Scene({ isDark }) {
         scale={6}
         size={isDark ? 1.5 : 1}
         speed={0.3}
-        color={isDark ? '#F5A623' : '#E8763A'}
+        color={isDark ? '#38BDF8' : '#0EA5E9'}
         opacity={isDark ? 0.5 : 0.3}
       />
     </>

@@ -58,7 +58,7 @@ function ProjectCard({ project, index }) {
         flex flex-col justify-end p-10 items-center text-center"
       >
         <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-400 flex flex-col items-center w-full">
-          <p className="font-body text-xs text-amber-300 mb-2 tracking-wide uppercase">{project.subtitle}</p>
+          <p className="font-body text-xs text-sky-300 mb-2 tracking-wide uppercase">{project.subtitle}</p>
           <h3 className="font-display text-2xl font-bold text-white mb-5 flex items-center justify-center gap-2">
             {project.title}
             <ArrowUpRight size={20} className="opacity-60" />

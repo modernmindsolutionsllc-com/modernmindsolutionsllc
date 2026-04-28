@@ -6,11 +6,11 @@
   --font-display: 'Clash Display', sans-serif;
   --font-body: 'Satoshi', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --color-primary-blue: #3B5EE6;
-  --color-accent-amber: #F5A623;
-  --color-accent-orange: #E8763A;
-  --color-accent-deep: #D94F30;
-  --color-pixel-lavender: #8B7FD4;
+  --color-primary-blue: #0EA5E9;
+  --color-accent-amber: #0F766E;
+  --color-accent-orange: #0EA5E9;
+  --color-accent-deep: #4F46E5;
+  --color-pixel-lavender: #6366F1;
   --color-light-bg: #FEFCF9;
   --color-light-bg-secondary: #FFF7ED;
   --color-light-text: #1A1A2E;
@@ -33,14 +33,14 @@
   --text-secondary: #6B6B7B;
   --border: #E8E0D8;
   --card-bg: #FFFFFF;
-  --accent: #E8763A;
-  --accent-hover: #D94F30;
-  --gradient-primary: linear-gradient(135deg, #F5A623 0%, #E8763A 50%, #D94F30 100%);
-  --gradient-glow: radial-gradient(circle at 30% 50%, rgba(245,166,35,0.12), transparent 60%);
+  --accent: #0EA5E9;
+  --accent-hover: #0F766E;
+  --gradient-primary: linear-gradient(135deg, #0F766E 0%, #0EA5E9 55%, #4F46E5 100%);
+  --gradient-glow: radial-gradient(circle at 30% 50%, rgba(14,165,233,0.12), transparent 60%);
   --glass-bg: rgba(255, 255, 255, 0.75);
   --glass-border: rgba(232, 224, 216, 0.6);
   --nav-shadow: 0 2px 20px rgba(0,0,0,0.08);
-  --dot-color: rgba(232, 118, 58, 0.08);
+  --dot-color: rgba(14, 165, 233, 0.08);
 }
 
 [data-theme="dark"] {
@@ -50,14 +50,14 @@
   --text-secondary: #9A9AAF;
   --border: #2A2A3E;
   --card-bg: #1E1E30;
-  --accent: #F5A623;
-  --accent-hover: #E8763A;
-  --gradient-primary: linear-gradient(135deg, #F5A623 0%, #E8763A 50%, #D94F30 100%);
-  --gradient-glow: radial-gradient(circle at 30% 50%, rgba(245,166,35,0.15), transparent 60%);
+  --accent: #38BDF8;
+  --accent-hover: #0EA5E9;
+  --gradient-primary: linear-gradient(135deg, #0F766E 0%, #0EA5E9 55%, #4F46E5 100%);
+  --gradient-glow: radial-gradient(circle at 30% 50%, rgba(14,165,233,0.15), transparent 60%);
   --glass-bg: rgba(15, 15, 23, 0.85);
   --glass-border: rgba(42, 42, 62, 0.6);
   --nav-shadow: 0 2px 20px rgba(0,0,0,0.4);
-  --dot-color: rgba(245, 166, 35, 0.05);
+  --dot-color: rgba(14, 165, 233, 0.05);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }

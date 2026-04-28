@@ -16,7 +16,7 @@ export default function SectionHeader({ overline, title, subtitle, centered = tr
     >
       {overline && (
         <span className={`inline-block font-body text-xs font-semibold tracking-[0.3em] uppercase mb-5 ${
-          light ? 'text-amber-200' : 'text-[var(--accent)]'
+          light ? 'text-sky-200' : 'text-[var(--accent)]'
         }`}>
           {overline}
         </span>

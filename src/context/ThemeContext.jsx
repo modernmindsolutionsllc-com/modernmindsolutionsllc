@@ -1,15 +1,14 @@
-import { createContext, useState, useEffect } from 'react';
-
-export const ThemeContext = createContext();
+import { useState, useEffect } from 'react';
+import { ThemeContext } from './theme';
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('modernmind-theme');
       if (saved) return saved;
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      return 'dark';
     }
-    return 'light';
+    return 'dark';
   });
 
   useEffect(() => {

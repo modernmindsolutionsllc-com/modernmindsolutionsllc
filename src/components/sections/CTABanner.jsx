@@ -120,7 +120,7 @@ export default function CTABanner() {
   };
 
   const inputBase =
-    'h-14 rounded-xl border bg-[var(--card-bg)] px-5 font-body text-sm text-[var(--text-primary)] shadow-[5px_5px_0_rgba(0,0,0,0.08)] outline-none transition-all duration-300 placeholder:text-[var(--text-secondary)]/70 focus:shadow-[5px_5px_0_rgba(232,118,58,0.16)]';
+    'h-14 rounded-xl border bg-[var(--card-bg)] px-5 font-body text-sm text-[var(--text-primary)] shadow-[5px_5px_0_rgba(0,0,0,0.08)] outline-none transition-all duration-300 placeholder:text-[var(--text-secondary)]/70 focus:shadow-[5px_5px_0_rgba(14,165,233,0.16)]';
   const inputOk = 'border-[var(--border)] focus:border-[var(--accent)]';
   const inputErr = 'border-red-500 focus:border-red-500';
 
@@ -140,7 +140,7 @@ export default function CTABanner() {
             transition={{ type: 'spring', stiffness: 260, damping: 22 }}
             className="absolute inset-x-0 top-10 z-50 flex justify-center px-4 pointer-events-none"
           >
-            <div className="pointer-events-auto flex items-center gap-4 rounded-2xl border border-[var(--accent)]/40 bg-gradient-to-r from-[#F5A623]/20 to-[#F15A24]/20 px-8 py-5 shadow-[0_8px_40px_rgba(241,90,36,0.30)] backdrop-blur-lg">
+            <div className="pointer-events-auto flex items-center gap-4 rounded-2xl border border-[var(--accent)]/40 bg-gradient-to-r from-[#0EA5E9]/20 to-[#4F46E5]/20 px-8 py-5 shadow-[0_8px_40px_rgba(14,165,233,0.30)] backdrop-blur-lg">
               <CheckCircle2 size={28} className="shrink-0 text-[var(--accent)]" strokeWidth={2} />
               <div>
                 <p className="font-display text-lg font-bold text-[var(--text-primary)]">
@@ -261,7 +261,7 @@ export default function CTABanner() {
             required
             name="service"
             defaultValue=""
-            className={`h-14 rounded-xl border border-[var(--border)] bg-[var(--card-bg)] px-5 font-body text-sm text-[var(--text-primary)] shadow-[5px_5px_0_rgba(0,0,0,0.08)] outline-none transition-all duration-300 focus:border-[var(--accent)] focus:shadow-[5px_5px_0_rgba(232,118,58,0.16)] md:col-span-2`}
+            className={`h-14 rounded-xl border border-[var(--border)] bg-[var(--card-bg)] px-5 font-body text-sm text-[var(--text-primary)] shadow-[5px_5px_0_rgba(0,0,0,0.08)] outline-none transition-all duration-300 focus:border-[var(--accent)] focus:shadow-[5px_5px_0_rgba(14,165,233,0.16)] md:col-span-2`}
           >
             <option value="" disabled>
               Services that you want to avail
@@ -279,7 +279,7 @@ export default function CTABanner() {
             name="description"
             placeholder="Description"
             rows="7"
-            className="min-h-[180px] resize-y rounded-xl border border-[var(--border)] bg-[var(--card-bg)] px-5 py-4 font-body text-sm text-[var(--text-primary)] shadow-[5px_5px_0_rgba(0,0,0,0.08)] outline-none transition-all duration-300 placeholder:text-[var(--text-secondary)]/70 focus:border-[var(--accent)] focus:shadow-[5px_5px_0_rgba(232,118,58,0.16)] md:col-span-2"
+            className="min-h-[180px] resize-y rounded-xl border border-[var(--border)] bg-[var(--card-bg)] px-5 py-4 font-body text-sm text-[var(--text-primary)] shadow-[5px_5px_0_rgba(0,0,0,0.08)] outline-none transition-all duration-300 placeholder:text-[var(--text-secondary)]/70 focus:border-[var(--accent)] focus:shadow-[5px_5px_0_rgba(14,165,233,0.16)] md:col-span-2"
           />
 
           {/* Submit */}
@@ -287,7 +287,7 @@ export default function CTABanner() {
             <button
               type="submit"
               disabled={submitStatus === 'submitting'}
-              className="inline-flex h-14 min-w-[170px] items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#F5A623] to-[#F15A24] px-8 font-body text-sm font-bold text-white shadow-[0_12px_30px_rgba(241,90,36,0.28)] transition-all duration-300 hover:-translate-y-1 hover:brightness-110 hover:shadow-[0_16px_38px_rgba(241,90,36,0.36)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--bg-primary)] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:brightness-100"
+              className="inline-flex h-14 min-w-[170px] items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#0EA5E9] to-[#4F46E5] px-8 font-body text-sm font-bold text-white shadow-[0_12px_30px_rgba(14,165,233,0.28)] transition-all duration-300 hover:-translate-y-1 hover:brightness-110 hover:shadow-[0_16px_38px_rgba(14,165,233,0.36)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--bg-primary)] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:brightness-100"
             >
               <Send size={18} strokeWidth={2} />
               {submitStatus === 'submitting' ? 'Sending...' : 'Submit Query'}

@@ -31,10 +31,10 @@ export default function Button({
 
   const variants = {
     filled: `
-      bg-gradient-to-r from-[#F5A623] to-[#F15A24]
+      bg-gradient-to-r from-[#0EA5E9] to-[#4F46E5]
       text-white
-      shadow-[0_10px_28px_rgba(241,90,36,0.28)]
-      hover:shadow-[0_14px_36px_rgba(241,90,36,0.38)]
+      shadow-[0_10px_28px_rgba(14,165,233,0.28)]
+      hover:shadow-[0_14px_36px_rgba(14,165,233,0.38)]
       hover:brightness-110
       active:brightness-95
     `,
