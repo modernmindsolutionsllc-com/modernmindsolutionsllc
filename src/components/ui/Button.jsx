@@ -31,7 +31,8 @@ export default function Button({
 
   const variants = {
     filled: `
-      bg-gradient-to-r from-[#0EA5E9] to-[#4F46E5]
+      animated-gradient premium-glow
+      bg-gradient-to-r from-[#0EA5E9] via-[#00c9a7] to-[#4F46E5]
       text-white
       shadow-[0_10px_28px_rgba(14,165,233,0.28)]
       hover:shadow-[0_14px_36px_rgba(14,165,233,0.38)]
@@ -93,7 +94,11 @@ export default function Button({
       onClick={onClick}
       className={classes}
       style={{ ...(sizeStyles[size] ?? sizeStyles.md), ...styleProp }}
-      whileHover={{ y: -2, scale: 1.02 }}
+      whileHover={{
+        y: -3,
+        scale: 1.025,
+        boxShadow: '0 18px 42px rgba(14, 165, 233, 0.42)',
+      }}
       whileTap={{ scale: 0.98 }}
       {...props}
     >

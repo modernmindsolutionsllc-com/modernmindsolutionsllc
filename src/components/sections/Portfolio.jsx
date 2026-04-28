@@ -37,10 +37,15 @@ function ProjectCard({ project, index }) {
   return (
     <motion.div
       ref={ref}
-      className="group relative rounded-2xl overflow-hidden cursor-pointer w-full"
+      className="group relative rounded-2xl overflow-hidden cursor-pointer w-full shadow-[0_12px_32px_rgba(0,0,0,0.08)]"
       initial={{ opacity: 0, y: 40 }}
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.15, duration: 0.5, ease: 'easeOut' }}
+      whileHover={{
+        y: -8,
+        scale: 1.015,
+        boxShadow: '0 22px 54px rgba(14, 165, 233, 0.18)',
+      }}
     >
       <div className="aspect-[16/10] relative overflow-hidden">
         <img
@@ -61,7 +66,14 @@ function ProjectCard({ project, index }) {
           <p className="font-body text-xs text-sky-300 mb-2 tracking-wide uppercase">{project.subtitle}</p>
           <h3 className="font-display text-2xl font-bold text-white mb-5 flex items-center justify-center gap-2">
             {project.title}
-            <ArrowUpRight size={20} className="opacity-60" />
+            <motion.span
+              className="inline-flex opacity-60"
+              initial={false}
+              whileHover={{ rotate: 45, x: 2, y: -2 }}
+              transition={{ type: 'spring', stiffness: 350, damping: 18 }}
+            >
+              <ArrowUpRight size={20} />
+            </motion.span>
           </h3>
           <div className="flex flex-wrap justify-center gap-2.5">
             {project.tags.map((tag) => (
@@ -86,7 +98,7 @@ export default function Portfolio() {
           subtitle="A selection of our recent work in design, development, and problem-solving."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-10 mb-12 md:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-10 mb-10 md:mb-12">
           {projects.map((project, i) => (
             <ProjectCard key={project.title} project={project} index={i} />
           ))}

@@ -40,6 +40,11 @@ function BlogCard({ post, index }) {
       initial={{ opacity: 0, y: 40 }}
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.12, duration: 0.5 }}
+      whileHover={{
+        y: -7,
+        scale: 1.012,
+        boxShadow: '0 18px 46px rgba(14, 165, 233, 0.14)',
+      }}
     >
       <div className="aspect-[16/9] relative overflow-hidden">
         <img
@@ -66,7 +71,15 @@ function BlogCard({ post, index }) {
         <div className="flex items-center justify-between pt-5 border-t border-[var(--border)] mt-auto">
           <span className="font-body text-xs text-[var(--text-secondary)]">{post.date}</span>
           <span className="inline-flex items-center gap-1.5 font-body text-sm font-medium text-[var(--accent)] group-hover:gap-3 transition-all duration-300">
-            Read More <ArrowRight size={14} />
+            Read More
+            <motion.span
+              className="inline-flex"
+              initial={false}
+              whileHover={{ x: 3 }}
+              transition={{ type: 'spring', stiffness: 360, damping: 18 }}
+            >
+              <ArrowRight size={14} />
+            </motion.span>
           </span>
         </div>
       </div>
@@ -83,7 +96,7 @@ export default function Blog() {
           title="Latest Insights"
           subtitle="Thoughts and perspectives from our team on design, development, and technology."
         />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mb-12 md:mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
           {posts.map((post, i) => (
             <BlogCard key={post.title} post={post} index={i} />
           ))}

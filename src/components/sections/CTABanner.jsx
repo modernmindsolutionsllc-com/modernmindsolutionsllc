@@ -162,7 +162,7 @@ export default function CTABanner() {
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
       >
-        <div className="w-full text-center mb-12 md:mb-14">
+        <div className="w-full text-center mb-10 md:mb-12">
           <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--accent)] mb-5">
             Start a Project
           </p>

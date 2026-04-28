@@ -2,21 +2,18 @@ import { useEffect, useState, useRef } from 'react';
 
 export function useCountUp(end, duration = 2000, startOnView = true) {
   const [count, setCount] = useState(0);
-  const [hasStarted, setHasStarted] = useState(false);
+  const [hasStarted, setHasStarted] = useState(!startOnView);
   const ref = useRef(null);
 
   useEffect(() => {
-    if (!startOnView) {
-      setHasStarted(true);
-      return;
-    }
+    if (!startOnView || hasStarted) return;
 
     const element = ref.current;
     if (!element) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) {
+        if (entry.isIntersecting) {
           setHasStarted(true);
           observer.unobserve(element);
         }

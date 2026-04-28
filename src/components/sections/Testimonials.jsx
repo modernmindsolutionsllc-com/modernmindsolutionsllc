@@ -58,7 +58,14 @@ export default function Testimonials() {
 
         {/* Card wrapper */}
         <div className="w-full flex justify-center">
-          <div className="relative w-full max-w-5xl rounded-3xl bg-[var(--card-bg)] border border-[var(--border)] shadow-lg px-5 py-8 sm:px-10 md:px-16 md:py-14">
+          <motion.div
+            className="relative w-full max-w-5xl rounded-3xl bg-[var(--card-bg)] border border-[var(--border)] shadow-lg px-5 py-8 sm:px-10 md:px-16 md:py-14"
+            whileHover={{
+              y: -5,
+              boxShadow: '0 20px 52px rgba(14, 165, 233, 0.13)',
+            }}
+            transition={{ type: 'spring', stiffness: 260, damping: 22 }}
+          >
 
             <Quote
               size={48}
@@ -130,7 +137,7 @@ export default function Testimonials() {
               </button>
             </div>
 
-          </div>
+          </motion.div>
         </div>
 
       </div>

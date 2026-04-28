@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import ThreeScene from './ThreeScene';
 import ScrollIndicator from './ScrollIndicator';
 import Button from '../ui/Button';
+import { useTheme } from '../../hooks/useTheme';
 
 const textVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -14,17 +15,36 @@ const textVariants = {
 };
 
 export default function HeroSection() {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16 sm:pt-28 sm:pb-20"
-      style={{ background: 'var(--gradient-glow), var(--bg-primary)' }}
+      className={`relative min-h-screen flex items-center overflow-hidden pt-24 pb-16 sm:pt-28 sm:pb-20 transition-colors duration-500 ${
+        isDark ? 'bg-[#050d1a]' : 'bg-[#f8fbff]'
+      }`}
     >
-      <div className="container grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-14 lg:gap-12 items-center">
-        {/* Text Content */}
-        <div className="lg:col-span-7 z-10 text-center lg:text-left">
+      <Suspense fallback={null}>
+        <ThreeScene isDark={isDark} />
+      </Suspense>
+
+      {/* Theme-aware side fade keeps the headline readable over the globe. */}
+      <div
+        className={`pointer-events-none absolute inset-0 z-[1] ${
+          isDark
+            ? 'bg-[radial-gradient(circle_at_70%_48%,rgba(0,201,167,0.14),transparent_32%),linear-gradient(90deg,rgba(5,13,26,0.82)_0%,rgba(5,13,26,0.38)_48%,rgba(5,13,26,0.16)_100%)]'
+            : 'bg-[radial-gradient(circle_at_71%_46%,rgba(14,165,233,0.16),transparent_30%),radial-gradient(circle_at_86%_18%,rgba(15,118,110,0.11),transparent_26%),radial-gradient(circle_at_18%_78%,rgba(79,70,229,0.08),transparent_30%),linear-gradient(90deg,rgba(248,251,255,0.97)_0%,rgba(248,251,255,0.78)_43%,rgba(248,251,255,0.24)_100%)]'
+        }`}
+      />
+
+      <div className="container relative z-10">
+        <div className="max-w-4xl text-center lg:text-left">
+
           <motion.span
-            className="inline-block font-body text-xs font-medium tracking-[0.25em] uppercase text-[var(--accent)] mb-8"
+            className={`inline-block font-body text-xs font-medium tracking-[0.25em] uppercase mb-8 ${
+              isDark ? 'text-sky-200' : 'text-sky-600'
+            }`}
             custom={0}
             initial="hidden"
             animate="visible"
@@ -34,7 +54,9 @@ export default function HeroSection() {
           </motion.span>
 
           <motion.h1
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-bold leading-[1.12] text-[var(--text-primary)] mb-10"
+            className={`font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-bold leading-[1.12] mb-10 ${
+              isDark ? 'text-white' : 'text-slate-900'
+            }`}
             custom={1}
             initial="hidden"
             animate="visible"
@@ -48,7 +70,9 @@ export default function HeroSection() {
           </motion.h1>
 
           <motion.p
-            className="font-body text-lg text-[var(--text-secondary)] max-w-lg mb-14 leading-[1.85] mx-auto lg:mx-0"
+            className={`font-body text-lg max-w-lg mb-14 leading-[1.85] mx-auto lg:mx-0 ${
+              isDark ? 'text-white/70' : 'text-slate-600'
+            }`}
             custom={2}
             initial="hidden"
             animate="visible"
@@ -67,29 +91,17 @@ export default function HeroSection() {
             <Button variant="filled" size="lg" href="#portfolio" id="hero-cta-primary">
               Explore Our Work
             </Button>
-            <Button variant="outlined" size="lg" href="#contact" id="hero-cta-secondary">
+            <Button
+              variant={isDark ? 'white-outlined' : 'outlined'}
+              size="lg"
+              href="#contact"
+              id="hero-cta-secondary"
+            >
               Let's Talk
             </Button>
           </motion.div>
-        </div>
 
-        {/* Three.js Visual */}
-        <motion.div
-          className="lg:col-span-5 h-[280px] sm:h-[380px] md:h-[420px] lg:h-[560px]"
-          initial={{ opacity: 0, scale: 0.85 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
-        >
-          <Suspense
-            fallback={
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="w-12 h-12 rounded-full border-2 border-[var(--accent)] border-t-transparent animate-spin" />
-              </div>
-            }
-          >
-            <ThreeScene />
-          </Suspense>
-        </motion.div>
+        </div>
       </div>
 
       <ScrollIndicator />

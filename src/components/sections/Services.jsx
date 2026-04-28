@@ -53,16 +53,32 @@ function ServiceCard({ service, index }) {
       initial={{ opacity: 0, y: 40 }}
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.1, duration: 0.5, ease: 'easeOut' }}
-      whileHover={{ y: -6 }}
+      whileHover="hover"
+      variants={{
+        rest: { y: 0 },
+        hover: { y: -8 },
+      }}
     >
       {/* Icon bubble */}
-      <div className="w-14 h-14 rounded-2xl mb-7 flex items-center justify-center
+      <motion.div
+        className="w-14 h-14 rounded-2xl mb-7 flex items-center justify-center
         bg-gradient-to-br from-[var(--accent)]/15 to-[var(--accent)]/5
         group-hover:from-[var(--accent)]/25 group-hover:to-[var(--accent)]/10
         transition-all duration-300"
+        variants={{
+          hover: { rotate: 8, scale: 1.08 },
+        }}
+        transition={{ type: 'spring', stiffness: 320, damping: 18 }}
       >
-        <Icon size={25} className="text-[var(--accent)]" strokeWidth={1.5} />
-      </div>
+        <motion.div
+          variants={{
+            hover: { rotate: -14 },
+          }}
+          transition={{ type: 'spring', stiffness: 360, damping: 16 }}
+        >
+          <Icon size={25} className="text-[var(--accent)]" strokeWidth={1.5} />
+        </motion.div>
+      </motion.div>
 
       {/* Title */}
       <h3 className="font-display text-lg font-bold text-[var(--text-primary)] mb-4 leading-snug">
@@ -166,7 +182,7 @@ export default function Services() {
 
         <div
           ref={servicesTrackRef}
-          className="scrollbar-hidden flex snap-x snap-mandatory gap-8 overflow-x-auto pb-4"
+          className="scrollbar-hidden flex snap-x snap-mandatory gap-6 sm:gap-8 overflow-x-auto pb-4"
         >
           {services.map((service, i) => (
             <ServiceCard key={service.title} service={service} index={i} />
@@ -174,7 +190,7 @@ export default function Services() {
         </div>
 
         {/* Custom scroll indicator */}
-        <div className="mt-8 flex justify-center">
+        <div className="mt-7 sm:mt-8 flex justify-center">
           <div
             ref={scrollBarTrackRef}
             onClick={handleTrackClick}

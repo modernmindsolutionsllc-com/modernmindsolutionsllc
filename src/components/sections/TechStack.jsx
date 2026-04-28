@@ -25,14 +25,19 @@ function TechIcon({ tech, index }) {
     : 'animate-[float-3_6s_ease-in-out_infinite]';
 
   return (
-    <div className={`group relative ${anim}`} style={{ animationDelay: `${tech.delay}s` }}>
+    <motion.div
+      className={`group relative ${anim}`}
+      style={{ animationDelay: `${tech.delay}s` }}
+      whileHover={{ y: -6, rotate: 2, scale: 1.04 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 18 }}
+    >
       <div className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-2xl bg-[var(--card-bg)] border border-[var(--border)] hover:border-[var(--accent)]/40 hover:shadow-xl hover:shadow-[var(--accent)]/8 flex items-center justify-center transition-all duration-400 cursor-default">
         <span className="font-display text-xs sm:text-sm md:text-base font-bold text-center leading-tight px-2 sm:px-4" style={{ color: tech.color }}>{tech.name}</span>
       </div>
       <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3.5 py-2 rounded-lg bg-[var(--text-primary)] text-[var(--bg-primary)] font-body text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
         {tech.name}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

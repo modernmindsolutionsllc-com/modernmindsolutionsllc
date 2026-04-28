@@ -13,17 +13,22 @@ function StatCard({ stat }) {
   const [ref, count] = useCountUp(stat.value, 2000);
 
   return (
-    <div
+    <motion.div
       ref={ref}
       className="flex flex-col items-center sm:items-start p-5 border-l-2 border-[var(--accent)]/30"
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.35 }}
+      transition={{ duration: 0.45, ease: 'easeOut' }}
+      whileHover={{ y: -4, borderColor: 'var(--accent)' }}
     >
-      <span className="font-display text-3xl md:text-4xl font-bold text-[var(--accent)]">
+      <span className="animated-gradient bg-gradient-to-r from-[#00c9a7] via-[#0EA5E9] to-[#4F46E5] bg-clip-text font-display text-3xl md:text-4xl font-bold text-transparent">
         {count}{stat.suffix}
       </span>
       <span className="font-body text-sm text-[var(--text-secondary)] mt-2">
         {stat.label}
       </span>
-    </div>
+    </motion.div>
   );
 }
 
@@ -33,7 +38,7 @@ export default function About() {
   return (
     <section id="about" className="section bg-transparent">
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center">
           {/* Text */}
           <motion.div
             ref={ref}
@@ -45,14 +50,14 @@ export default function About() {
             <span className="inline-block font-body text-sm font-medium tracking-[0.2em] uppercase text-[var(--accent)] mb-6">
               Who We Are
             </span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-[3.25rem] font-bold text-[var(--text-primary)] mb-10 leading-[1.15]">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-[3.25rem] font-bold text-[var(--text-primary)] mb-7 sm:mb-8 leading-[1.15]">
               Modern Problems Deserve{' '}
               <span className="bg-gradient-to-r from-accent-amber via-accent-orange to-accent-deep bg-clip-text text-transparent">
                 Modern Minds
               </span>
             </h2>
 
-            <p className="font-body text-base md:text-lg text-[var(--text-secondary)] leading-[1.85] mb-8">
+            <p className="font-body text-base md:text-lg text-[var(--text-secondary)] leading-[1.85] mb-7 sm:mb-8">
               We bridge great design and powerful engineering — partnering with startups and enterprises
               to turn ambitious ideas into reality.
             </p>
@@ -67,7 +72,7 @@ export default function About() {
 
           {/* Visual */}
           <motion.div
-            className="lg:col-span-5 lg:mt-16 xl:mt-20"
+            className="lg:col-span-5"
             initial={{ opacity: 0, x: 40 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6, ease: 'easeOut' }}
