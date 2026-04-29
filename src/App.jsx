@@ -5,6 +5,7 @@ import HeroSection from './components/hero/HeroSection';
 import ClientLogos from './components/sections/ClientLogos';
 import Services from './components/sections/Services';
 import About from './components/sections/About';
+import ProcessTimeline from './components/sections/ProcessTimeline';
 import Portfolio from './components/sections/Portfolio';
 import TechStack from './components/sections/TechStack';
 import Testimonials from './components/sections/Testimonials';
@@ -21,6 +22,7 @@ export default function App() {
           <ClientLogos />
           <Services />
           <About />
+          <ProcessTimeline />
           <Portfolio />
           <TechStack />
           <Testimonials />
