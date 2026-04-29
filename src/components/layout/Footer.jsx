@@ -1,4 +1,10 @@
-import { Globe, MessageCircle, GitFork, Palette, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { MessageCircle, GitFork, Palette, Mail, MapPin, ArrowUpRight, Globe } from 'lucide-react';
+
+const LinkedInIcon = () => (
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+  </svg>
+);
 
 const quickLinks = [
   { label: 'Home', href: '#home' },
@@ -13,13 +19,26 @@ const services = [
   { label: 'Mobile Apps', href: '#services' },
   { label: 'AI & Automation', href: '#services' },
   { label: 'UI/UX Design', href: '#services' },
+  { label: 'Oracle Fusion HCM Implementation', href: '#services' },
+  { label: 'Oracle Fusion HCM - Managed Services', href: '#services' },
 ];
 
 const socials = [
-  { icon: Globe, href: '#', label: 'LinkedIn' },
+  { icon: LinkedInIcon, href: 'https://www.linkedin.com/company/modern-mind-solutions-llc/', label: 'LinkedIn' },
   { icon: MessageCircle, href: '#', label: 'X (Twitter)' },
   { icon: GitFork, href: '#', label: 'GitHub' },
   { icon: Palette, href: '#', label: 'Dribbble' },
+];
+
+const offices = [
+  {
+    name: 'Modern Mind Solutions LLC',
+    location: 'Boston, US',
+  },
+  {
+    name: 'Modern Mind Solutions',
+    location: 'Ahmedabad, Gujarat',
+  },
 ];
 
 export default function Footer() {
@@ -29,15 +48,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 lg:gap-20">
           {/* Brand Column */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <a href="#home" className="flex items-center mb-6">
+            <a href="#home" className="flex items-center mb-8">
               <img
                 src="/images/logo.png"
-                alt="ModernMind Solutions LLC"
-                className="h-10 w-auto object-contain"
+                alt="Modern Mind Solutions LLC"
+                className="h-12 w-auto object-contain"
               />
             </a>
-            <p className="font-body text-sm text-[var(--text-secondary)] mb-8 leading-[1.8] max-w-xs">
-              Modern digital experiences built for growth.
+            <p className="font-display text-base font-bold text-[var(--text-primary)] mb-4 leading-snug">
+              Modern Mind Solutions LLC
+            </p>
+            <p className="font-body text-sm text-[var(--text-secondary)] mb-8 leading-relaxed max-w-xs">
+              Innovative technology solutions for modern businesses.
             </p>
             <div className="flex items-center gap-3">
               {socials.map((s) => (
@@ -45,6 +67,8 @@ export default function Footer() {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
+                  target={s.href.startsWith('http') ? '_blank' : undefined}
+                  rel={s.href.startsWith('http') ? 'noreferrer' : undefined}
                   className="w-10 h-10 rounded-lg bg-[var(--card-bg)] border border-[var(--border)]
                     flex items-center justify-center text-[var(--text-secondary)]
                     hover:text-[var(--accent)] hover:border-[var(--accent)] transition-all duration-200"
@@ -97,21 +121,31 @@ export default function Footer() {
             <ul className="space-y-5">
               <li className="flex items-start gap-3">
                 <Mail size={16} className="text-[var(--accent)] mt-0.5 shrink-0" />
-                <a href="mailto:hello@modernmind.dev" className="font-body text-sm text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors">
-                  hello@modernmind.dev
+                <a href="mailto:info@modernmindsolutionsllc.com" className="font-body text-sm text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors">
+                  info@modernmindsolutionsllc.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Phone size={16} className="text-[var(--accent)] mt-0.5 shrink-0" />
-                <a href="tel:+1234567890" className="font-body text-sm text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors">
-                  +1 (234) 567-890
+                <Globe size={16} className="text-[var(--accent)] mt-0.5 shrink-0" />
+                <a
+                  href="https://www.linkedin.com/company/modern-mind-solutions-llc/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-body text-sm text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
+                >
+                  Modern Mind Solutions LLC
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="text-[var(--accent)] mt-0.5 shrink-0" />
-                <span className="font-body text-sm text-[var(--text-secondary)]">
-                  San Francisco, CA
-                </span>
+                <div className="space-y-3">
+                  {offices.map((office) => (
+                    <div key={office.location} className="font-body text-sm leading-relaxed">
+                      <p className="text-[var(--text-primary)]">{office.name}</p>
+                      <p className="text-[var(--text-secondary)]">{office.location}</p>
+                    </div>
+                  ))}
+                </div>
               </li>
             </ul>
           </div>
@@ -122,7 +156,7 @@ export default function Footer() {
       <div className="border-t border-[var(--border)]">
         <div className="container py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-body text-xs text-[var(--text-secondary)]">
-            © 2026 ModernMind Solutions LLC. All rights reserved.
+            &copy; 2026 Modern Mind Solutions LLC. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a href="#" className="font-body text-xs text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors">Privacy Policy</a>
