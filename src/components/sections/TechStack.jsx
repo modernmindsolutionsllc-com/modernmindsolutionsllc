@@ -44,13 +44,14 @@ function TechIcon({ tech, index }) {
 export default function TechStack() {
   const [ref, isVisible] = useScrollAnimation();
   return (
-    <section id="tech-stack" className="section bg-transparent">
+    <section id="tech-stack" className="section bg-transparent pt-16 sm:pt-20 lg:pt-24">
       <div className="container">
         <SectionHeader
           overline="Our Toolkit"
           title="Technologies We Master"
           subtitle="Cutting-edge technologies for robust, scalable, future-proof solutions."
         />
+        <div className="h-6 sm:h-8 lg:h-12 w-full" aria-hidden="true" />
         <motion.div
           ref={ref}
           className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-10 max-w-6xl mx-auto"
