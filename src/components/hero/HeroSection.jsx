@@ -1,7 +1,6 @@
 import { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import ThreeScene from './ThreeScene';
-import ScrollIndicator from './ScrollIndicator';
 import Button from '../ui/Button';
 import { useTheme } from '../../hooks/useTheme';
 
@@ -103,8 +102,6 @@ export default function HeroSection() {
 
         </div>
       </div>
-
-      <ScrollIndicator />
     </section>
   );
 }
