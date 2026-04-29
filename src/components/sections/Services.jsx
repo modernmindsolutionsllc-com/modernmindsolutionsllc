@@ -44,7 +44,7 @@ function ServiceCard({ service, index }) {
   return (
     <motion.div
       ref={ref}
-      className="group flex h-full min-h-[280px] w-[min(80vw,17rem)] shrink-0 snap-start flex-col items-center text-center
+      className="group flex h-full min-h-[280px] w-[min(80vw,17rem)] shrink-0 snap-start flex-col items-center justify-center text-center
         rounded-2xl p-6 sm:p-8 sm:w-[19rem] xl:w-[20rem]
         bg-[var(--card-bg)] border border-[var(--border)]
         hover:border-[var(--accent)]/40
